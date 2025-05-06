@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\WebCodesBares.csproj": {}
+    "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\WebCodesBares.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\WebCodesBares.csproj": {
+    "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\WebCodesBares.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\WebCodesBares.csproj",
+        "projectUniqueName": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\WebCodesBares.csproj",
         "projectName": "WebCodesBares",
-        "projectPath": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\WebCodesBares.csproj",
-        "packagesPath": "C:\\Users\\sfyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\obj\\",
+        "projectPath": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\WebCodesBares.csproj",
+        "packagesPath": "C:\\Users\\rloer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\sfyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rloer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -130,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
