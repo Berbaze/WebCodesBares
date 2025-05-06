@@ -1,0 +1,54 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2025-04-23T10:06:47.0353376Z"
+    },
+    "mssql1": {
+      "restored": false,
+      "restoreTime": "2025-04-25T12:02:25.275765Z"
+    }
+  },
+  "parameters": {
+    "WebCodesBares20250414091146.subscriptionId": {
+      "Name": "WebCodesBares20250414091146.subscriptionId",
+      "Type": "subscription",
+      "Value": "f489390a-d405-4a02-8e2b-479a67c26e6c"
+    },
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "f489390a-d405-4a02-8e2b-479a67c26e6c"
+    },
+    "WebCodesBares20250414091146.resourceGroupName": {
+      "Name": "WebCodesBares20250414091146.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebCodesBares20250414091146ResourceGroup"
+    },
+    "mssql1.resourceGroupLocation": {
+      "Name": "mssql1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "canadacentral"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebCodesBares20250414091146ResourceGroup"
+    },
+    "WebCodesBares20250414091146.resourceGroupLocation": {
+      "Name": "WebCodesBares20250414091146.resourceGroupLocation",
+      "Type": null,
+      "Value": "canadacentral"
+    },
+    "WebCodesBares20250414091146.resourceName": {
+      "Name": "WebCodesBares20250414091146.resourceName",
+      "Type": null,
+      "Value": "WebCodesBares20250414091146"
+    },
+    "mssql1.serviceConnectorResourceGroupName": {
+      "Name": "mssql1.serviceConnectorResourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "WebCodesBares20250414091146ResourceGroup"
+    }
+  }
+}

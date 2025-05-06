@@ -1,0 +1,74 @@
+[
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "GetPanier",
+    "RelativePath": "api/panier",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "AjouterProduit",
+    "RelativePath": "api/panier/ajouter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produitId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "GetNombreProduits",
+    "RelativePath": "api/panier/count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "ObtenirProduitsDuPanier",
+    "RelativePath": "api/panier/produits",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "SupprimerProduit",
+    "RelativePath": "api/panier/supprimer",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produitId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.PanierController",
+    "Method": "ViderPanier",
+    "RelativePath": "api/panier/vider",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

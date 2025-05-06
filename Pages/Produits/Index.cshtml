@@ -1,0 +1,236 @@
+﻿@page 
+@model WebCodesBares.Pages.Produits.IndexModel
+@using WebCodesBares.Data
+
+@{
+    ViewData["Title"] = "Produkte";
+}
+
+<!-- Résumé Panier Dynamique Déplaçable (zone de glissement) -->
+<div id="resumePanier" class="position-fixed top-0 end-0 m-4" style="z-index:1050; width: 320px;">
+    <div class="card shadow-lg p-4 border-0 rounded-4 bg-white" style="cursor: grab;" id="panierHeader">
+        <h5 class="mb-3 fw-semibold text-primary">🛒 Aktuelle Auswahl</h5>
+        <div id="panierProduits">
+            <p class="text-muted">Lade Produkte...</p>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="fw-bold">Gesamt</span>
+            <span class="text-success fw-bold fs-5" id="panierTotal">-- €</span>
+        </div>
+        <button class="btn btn-danger w-100 mt-3 rounded-pill" onclick="location.href='/Produits/Panier'">🧾 Tarif ändern</button>
+        <p class="text-center mt-3 mb-0">
+            <a href="/Produits/Panier" class="text-decoration-none">➡️ Zum Warenkorb (<span id="panierCount">0</span>)</a>
+        </p>
+    </div>
+</div>
+
+
+<!-- Titre principal -->
+<div class="container text-center mt-5">
+    <h1 class="display-4 fw-bold">🛍️ Unsere Lizenzmodelle</h1>
+    <p class="lead text-secondary">Wählen Sie das passende Modell für Ihr Unternehmen</p>
+</div>
+
+<!-- Affichage des modèles de licence -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📜 Basic Modell</h2>
+    @{
+        RenderProduits(Model.BasicListe);
+    }
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">💰 Pro Modell</h2>
+    @{
+        RenderProduits(Model.ProListe);
+    }
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🔄 Enterprise Modell</h2>
+    @{
+        RenderProduits(Model.EnterpriseListe);
+    }
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-1">© 2025 <strong>WebCodesBares</strong> | Alle Rechte vorbehalten</p>
+    <div class="d-flex justify-content-center gap-3 small">
+        <a href="/Privacy" class="text-light text-decoration-none">Datenschutz</a>
+        <span>|</span>
+        <a href="/Kontakt" class="text-light text-decoration-none">Kontakt</a>
+    </div>
+</footer>
+
+<!-- Fonction d'affichage des produits -->
+@functions {
+    void RenderProduits(List<Produit> produkte)
+    {
+        if (produkte == null || produkte.Count == 0)
+        {
+            <div class="alert alert-warning text-center">
+                ❌ Keine Produkte verfügbar.
+            </div>
+            ;
+        }
+        else
+        {
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var produkt in produkte)
+                {
+                    <div class="col">
+                        <div class="card h-100 shadow-sm border-0 rounded-4 product-card">
+                            <img src="@produkt.ImageUrl" class="card-img-top rounded-top" alt="@produkt.Nom" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title text-dark">@produkt.Nom</h5>
+                                <p class="text-muted small">@produkt.Description</p>
+                                <p class="fw-bold fs-5 text-success">@produkt.Prix €</p>
+                                <button type="button" class="btn btn-outline-primary mt-2 rounded-pill btn-ajouter-panier" data-produit-id="@produkt.Id_Produit">
+                                    ➕ In den Warenkorb
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("🔹 Seite geladen, aktualisiere Warenkorb...");
+
+        updatePanierCount();
+        chargerResumePanier(); // ✅ AU CHARGEMENT
+
+        document.querySelectorAll(".btn-ajouter-panier").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                let produitId = this.dataset.produitId;
+                if (!produitId) {
+                    console.error("❌ Ungültige Produkt-ID!");
+                    return;
+                }
+                console.log("🛒 Füge Produkt-ID hinzu:", produitId);
+                fetch(`/api/panier/ajouter?produitId=${produitId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("❌ Serverfehler!");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("✅ Produkt dem Warenkorb hinzugefügt!", data);
+                    let panierBadge = document.getElementById('panierCount');
+                    if (panierBadge) {
+                        panierBadge.innerText = data.count || 0;
+                    }
+                    showSuccessMessage("✅ Produkt wurde erfolgreich zum Warenkorb hinzugefügt!");
+                    chargerResumePanier();                })
+                .catch(error => {
+                    console.error("❌ AJAX-Fehler:", error);
+                    alert("⚠️ Ein Fehler ist aufgetreten. Bitte überprüfen Sie die Konsole.");
+                });
+            });
+        });
+
+        function updatePanierCount() {
+            fetch('/api/panier/count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("❌ Serverfehler!");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("🛒 Warenkorb aktualisiert:", data.count);
+                    let panierBadge = document.getElementById('panierCount');
+                    if (panierBadge) {
+                        panierBadge.innerText = data.count || 0;
+                    }
+                })
+                .catch(error => console.error("⚠️ Fehler beim Abrufen des Warenkorbs:", error));
+        }
+
+        function showSuccessMessage(message) {
+            let alertBox = document.createElement("div");
+            alertBox.className = "alert alert-success position-fixed top-0 end-0 m-3";
+            alertBox.style.zIndex = "1050";
+            alertBox.innerText = message;
+            document.body.appendChild(alertBox);
+            setTimeout(() => {
+                alertBox.remove();
+            }, 2000);
+        }
+    });
+
+    function chargerResumePanier() {
+        fetch('/api/panier/details')
+            .then(response => {
+                if (!response.ok) throw new Error("Fehler beim Abrufen des Warenkorbs");
+                return response.json();
+            })
+            .then(data => {
+                const container = document.getElementById("panierProduits");
+                const totalEl = document.getElementById("panierTotal");
+                const countBadge = document.getElementById("panierCount");
+
+                if (data.produits.length === 0) {
+                    container.innerHTML = "<p class='text-muted'>🛒 Der Warenkorb ist leer.</p>";
+                    totalEl.innerText = "0,00 €";
+                    return;
+                }
+
+                container.innerHTML = data.produits.map(p =>
+                    `<p><strong>1 x ${p.nom}</strong> <span class="float-end">${p.prix.toFixed(2)} €</span></p>`
+                ).join("");
+
+                totalEl.innerText = data.totalPanier.toFixed(2) + " €";
+
+                if (countBadge) countBadge.innerText = data.produits.length;
+            })
+            .catch(error => {
+                console.error("❌ Fehler beim Laden des Warenkorbs:", error);
+                document.getElementById("panierProduits").innerHTML =
+                    "<p class='text-danger'>Fehler beim Laden des Warenkorbs.</p>";
+            });
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("resumePanier");
+        const header = document.getElementById("panierHeader");
+        let posX = 0, posY = 0, mouseX = 0, mouseY = 0, isDragging = false;
+
+        header.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            header.style.cursor = "grabbing";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+
+            const dx = e.clientX - mouseX;
+            const dy = e.clientY - mouseY;
+            posX += dx;
+            posY += dy;
+            container.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            header.style.cursor = "grab";
+        });
+    });
+</script>
+

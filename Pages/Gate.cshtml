@@ -1,0 +1,32 @@
+﻿@page
+@model WebCodesBares.Pages.GateModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zugang geschützt</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div style="max-width:400px;margin:100px auto;text-align:center;padding-top:100px">
+        <img src="/images/soufiane.ico" alt="Logo" style="max-height:80px;margin-bottom:30px" />
+        <h2 class="mb-4">🔐 Geschützter Zugang</h2>
+
+        <form method="post">
+            <input type="password" name="passcode" class="form-control mb-3" placeholder="Passwort eingeben" />
+            <button type="submit" class="btn btn-primary w-100">Bestätigen</button>
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <p class="text-danger mt-3">@Model.ErrorMessage</p>
+            }
+        </form>
+    </div>
+</body>
+</html>
+

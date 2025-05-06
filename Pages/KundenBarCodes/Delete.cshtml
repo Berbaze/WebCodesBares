@@ -1,0 +1,25 @@
+﻿@page
+@model WebCodesBares.Pages.KundenBarCodes.DeleteModel
+@{
+    ViewData["Title"] = "Kunde löschen";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-danger">⚠️ Kunde löschen</h2>
+
+    <p>Möchten Sie den folgenden Kunden wirklich löschen?</p>
+
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>Firmenname:</strong> @Model.Kunde.Firmenname</li>
+        <li class="list-group-item"><strong>Email:</strong> @Model.Kunde.Email</li>
+        <li class="list-group-item"><strong>Telefonnummer:</strong> @Model.Kunde.Telefonnummer</li>
+        <li class="list-group-item"><strong>Adresse:</strong> @Model.Kunde.Adresse</li>
+    </ul>
+
+    <form method="post">
+        <input type="hidden" asp-for="Kunde.Id_Kunden" />
+        <button type="submit" class="btn btn-danger">🗑️ Löschen</button>
+        <a asp-page="Index" class="btn btn-secondary">🔙 Abbrechen</a>
+    </form>
+</div>
+

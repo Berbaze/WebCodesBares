@@ -1,0 +1,48 @@
+﻿@page
+@model WebCodesBares.Pages.Produits.CreateModel
+@{
+    ViewData["Title"] = "Produkt hinzufügen";
+}
+
+<h2>Produkt hinzufügen</h2>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success">
+        @Model.SuccessMessage
+    </div>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Produit.Nom">Produktname:</label>
+        <input asp-for="Produit.Nom" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produit.Description">Beschreibung:</label>
+        <textarea asp-for="Produit.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produit.Prix">Preis:</label>
+        <input asp-for="Produit.Prix" class="form-control" type="number" step="0.01" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produit.Type">Lizenzmodell:</label>
+        <select asp-for="Produit.Type" class="form-control" required>
+            <option value="">-- Lizenzmodell auswählen --</option>
+            <option value="Basic">Basic</option>
+            <option value="Pro">Pro</option>
+            <option value="Enterprise">Enterprise</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Produktbild:</label>
+        <input type="file" name="imageFile" class="form-control" accept="image/*" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Hinzufügen</button>
+</form>
