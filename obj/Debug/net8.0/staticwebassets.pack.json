@@ -1,539 +1,539 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebCodesBares.bundle.scp.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebCodesBares.bundle.scp.css",
       "PackagePath": "staticwebassets\\WebCodesBares.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\01d8a8c1-6a6b-462b-9796-159f00f8de85_basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\01d8a8c1-6a6b-462b-9796-159f00f8de85_basic.webp",
       "PackagePath": "staticwebassets\\images\\01d8a8c1-6a6b-462b-9796-159f00f8de85_basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\0db8a7db-75c4-47d2-89ec-c7d82ef79749_license-pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\0db8a7db-75c4-47d2-89ec-c7d82ef79749_license-pro.webp",
       "PackagePath": "staticwebassets\\images\\0db8a7db-75c4-47d2-89ec-c7d82ef79749_license-pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\1c68460f-3293-48c7-8121-a3c4d0aa2827_license-basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\1c68460f-3293-48c7-8121-a3c4d0aa2827_license-basic.webp",
       "PackagePath": "staticwebassets\\images\\1c68460f-3293-48c7-8121-a3c4d0aa2827_license-basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\21d35d08-2d8b-437b-8246-5f325b74906f_license-pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\21d35d08-2d8b-437b-8246-5f325b74906f_license-pro.webp",
       "PackagePath": "staticwebassets\\images\\21d35d08-2d8b-437b-8246-5f325b74906f_license-pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\23b73d88-ee4e-405d-991a-61d269080ee0_barcode2.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\23b73d88-ee4e-405d-991a-61d269080ee0_barcode2.webp",
       "PackagePath": "staticwebassets\\images\\23b73d88-ee4e-405d-991a-61d269080ee0_barcode2.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\25a95138-9361-46be-9dcd-f1896445e3e6_hybrid3.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\25a95138-9361-46be-9dcd-f1896445e3e6_hybrid3.webp",
       "PackagePath": "staticwebassets\\images\\25a95138-9361-46be-9dcd-f1896445e3e6_hybrid3.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\2f626338-de40-4277-8917-cf96f5b70a11_barcode1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\2f626338-de40-4277-8917-cf96f5b70a11_barcode1.webp",
       "PackagePath": "staticwebassets\\images\\2f626338-de40-4277-8917-cf96f5b70a11_barcode1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\30d68130-9923-4cbb-8d8a-5adc164dfb2f_hybrid1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\30d68130-9923-4cbb-8d8a-5adc164dfb2f_hybrid1.webp",
       "PackagePath": "staticwebassets\\images\\30d68130-9923-4cbb-8d8a-5adc164dfb2f_hybrid1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\36e2c128-2ec9-43a5-aa4e-6667f2942c2e_barcode4.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\36e2c128-2ec9-43a5-aa4e-6667f2942c2e_barcode4.webp",
       "PackagePath": "staticwebassets\\images\\36e2c128-2ec9-43a5-aa4e-6667f2942c2e_barcode4.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\3cbb227f-7b9a-4463-8093-44fb1fbe7e6b_pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\3cbb227f-7b9a-4463-8093-44fb1fbe7e6b_pro.webp",
       "PackagePath": "staticwebassets\\images\\3cbb227f-7b9a-4463-8093-44fb1fbe7e6b_pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\3cf4294f-7fdc-489c-ab3b-9b22e95e4fd5_barcode2.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\3cf4294f-7fdc-489c-ab3b-9b22e95e4fd5_barcode2.webp",
       "PackagePath": "staticwebassets\\images\\3cf4294f-7fdc-489c-ab3b-9b22e95e4fd5_barcode2.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\42d0ed90-e14a-4fe1-b783-d5ae13d5ac55_license-enterprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\42d0ed90-e14a-4fe1-b783-d5ae13d5ac55_license-enterprise.webp",
       "PackagePath": "staticwebassets\\images\\42d0ed90-e14a-4fe1-b783-d5ae13d5ac55_license-enterprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\4877f4b9-5a8b-4709-b379-ed010cd11a67_barcode5.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\4877f4b9-5a8b-4709-b379-ed010cd11a67_barcode5.webp",
       "PackagePath": "staticwebassets\\images\\4877f4b9-5a8b-4709-b379-ed010cd11a67_barcode5.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\4b5cbad2-20be-41ac-8b66-160aae513862_barcode9.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\4b5cbad2-20be-41ac-8b66-160aae513862_barcode9.webp",
       "PackagePath": "staticwebassets\\images\\4b5cbad2-20be-41ac-8b66-160aae513862_barcode9.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\5739ca5f-47d6-4d9b-bc42-e6ce10f6674a_license-basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\5739ca5f-47d6-4d9b-bc42-e6ce10f6674a_license-basic.webp",
       "PackagePath": "staticwebassets\\images\\5739ca5f-47d6-4d9b-bc42-e6ce10f6674a_license-basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\58fdde64-d741-4e24-a008-1f10a8e6a2d9_pay-per-use-2000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\58fdde64-d741-4e24-a008-1f10a8e6a2d9_pay-per-use-2000.webp",
       "PackagePath": "staticwebassets\\images\\58fdde64-d741-4e24-a008-1f10a8e6a2d9_pay-per-use-2000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\6897a5af-2f29-4e84-b095-791e25268ccf_hybrid1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\6897a5af-2f29-4e84-b095-791e25268ccf_hybrid1.webp",
       "PackagePath": "staticwebassets\\images\\6897a5af-2f29-4e84-b095-791e25268ccf_hybrid1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\7d2b6d9a-d612-45ea-9d62-08d8b90e8ea4_entreprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\7d2b6d9a-d612-45ea-9d62-08d8b90e8ea4_entreprise.webp",
       "PackagePath": "staticwebassets\\images\\7d2b6d9a-d612-45ea-9d62-08d8b90e8ea4_entreprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\7f559d50-21af-4429-a9e4-f2e3c2cf86ed_pay-per-use-10000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\7f559d50-21af-4429-a9e4-f2e3c2cf86ed_pay-per-use-10000.webp",
       "PackagePath": "staticwebassets\\images\\7f559d50-21af-4429-a9e4-f2e3c2cf86ed_pay-per-use-10000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\8462fbd9-b94a-41b8-9810-e6a5bfc4d25a_barcode1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\8462fbd9-b94a-41b8-9810-e6a5bfc4d25a_barcode1.webp",
       "PackagePath": "staticwebassets\\images\\8462fbd9-b94a-41b8-9810-e6a5bfc4d25a_barcode1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\85b30d33-2d87-4ac0-b6fa-010d64f74f89_barcode1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\85b30d33-2d87-4ac0-b6fa-010d64f74f89_barcode1.webp",
       "PackagePath": "staticwebassets\\images\\85b30d33-2d87-4ac0-b6fa-010d64f74f89_barcode1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\869ad31c-2ca9-4902-9066-22bf904dfcac_pay-per-use-2000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\869ad31c-2ca9-4902-9066-22bf904dfcac_pay-per-use-2000.webp",
       "PackagePath": "staticwebassets\\images\\869ad31c-2ca9-4902-9066-22bf904dfcac_pay-per-use-2000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\8860da9f-b9f0-4fff-8c13-3e9384cfc394_pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\8860da9f-b9f0-4fff-8c13-3e9384cfc394_pro.webp",
       "PackagePath": "staticwebassets\\images\\8860da9f-b9f0-4fff-8c13-3e9384cfc394_pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\8c951402-eafe-4721-b6e9-cdd7d0253e4d_license-enterprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\8c951402-eafe-4721-b6e9-cdd7d0253e4d_license-enterprise.webp",
       "PackagePath": "staticwebassets\\images\\8c951402-eafe-4721-b6e9-cdd7d0253e4d_license-enterprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\9ba43e1b-d348-4e46-81b6-5c059ff35ad7_pay-per-use-2000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\9ba43e1b-d348-4e46-81b6-5c059ff35ad7_pay-per-use-2000.webp",
       "PackagePath": "staticwebassets\\images\\9ba43e1b-d348-4e46-81b6-5c059ff35ad7_pay-per-use-2000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\9db6dc3e-ed76-4215-b9eb-a1ce0ce47b95_hybrid3.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\9db6dc3e-ed76-4215-b9eb-a1ce0ce47b95_hybrid3.webp",
       "PackagePath": "staticwebassets\\images\\9db6dc3e-ed76-4215-b9eb-a1ce0ce47b95_hybrid3.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a1990bb1-fe3a-4e6c-8a12-18e8fea36098_barcode1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\a1990bb1-fe3a-4e6c-8a12-18e8fea36098_barcode1.webp",
       "PackagePath": "staticwebassets\\images\\a1990bb1-fe3a-4e6c-8a12-18e8fea36098_barcode1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a243d092-0e71-432e-bfa1-5d5d706f851c_entreprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\a243d092-0e71-432e-bfa1-5d5d706f851c_entreprise.webp",
       "PackagePath": "staticwebassets\\images\\a243d092-0e71-432e-bfa1-5d5d706f851c_entreprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a9ca78d8-d58e-4d1f-a078-ef98f4bc8c1f_pay-per-use-500.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\a9ca78d8-d58e-4d1f-a078-ef98f4bc8c1f_pay-per-use-500.webp",
       "PackagePath": "staticwebassets\\images\\a9ca78d8-d58e-4d1f-a078-ef98f4bc8c1f_pay-per-use-500.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\ad350d26-67d9-4414-a5ac-cce8aaebd09d_pay-per-use-500.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\ad350d26-67d9-4414-a5ac-cce8aaebd09d_pay-per-use-500.webp",
       "PackagePath": "staticwebassets\\images\\ad350d26-67d9-4414-a5ac-cce8aaebd09d_pay-per-use-500.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\b5a5d5c9-fe54-4868-8916-0f8afdc6dc4e_pay-per-use-500.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\b5a5d5c9-fe54-4868-8916-0f8afdc6dc4e_pay-per-use-500.webp",
       "PackagePath": "staticwebassets\\images\\b5a5d5c9-fe54-4868-8916-0f8afdc6dc4e_pay-per-use-500.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode1.webp",
       "PackagePath": "staticwebassets\\images\\barcode1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode10.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode10.webp",
       "PackagePath": "staticwebassets\\images\\barcode10.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode2.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode2.webp",
       "PackagePath": "staticwebassets\\images\\barcode2.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode3.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode3.webp",
       "PackagePath": "staticwebassets\\images\\barcode3.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode4.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode4.webp",
       "PackagePath": "staticwebassets\\images\\barcode4.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode5.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode5.webp",
       "PackagePath": "staticwebassets\\images\\barcode5.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode6.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode6.webp",
       "PackagePath": "staticwebassets\\images\\barcode6.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode7.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode7.webp",
       "PackagePath": "staticwebassets\\images\\barcode7.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode8.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode8.webp",
       "PackagePath": "staticwebassets\\images\\barcode8.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcode9.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcode9.webp",
       "PackagePath": "staticwebassets\\images\\barcode9.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\barcodes.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\barcodes.webp",
       "PackagePath": "staticwebassets\\images\\barcodes.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\basic.webp",
       "PackagePath": "staticwebassets\\images\\basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\bb290ab3-d689-43a9-956e-89d37d4bcd56_entreprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\bb290ab3-d689-43a9-956e-89d37d4bcd56_entreprise.webp",
       "PackagePath": "staticwebassets\\images\\bb290ab3-d689-43a9-956e-89d37d4bcd56_entreprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\berbaze.png",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\berbaze.png",
       "PackagePath": "staticwebassets\\images\\berbaze.png"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp",
       "PackagePath": "staticwebassets\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\cd88eb1b-7148-4dc1-abae-a5c8ca8027b6_pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\cd88eb1b-7148-4dc1-abae-a5c8ca8027b6_pro.webp",
       "PackagePath": "staticwebassets\\images\\cd88eb1b-7148-4dc1-abae-a5c8ca8027b6_pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\cfdeb302-7775-4d44-a469-c4aec6236d06_basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\cfdeb302-7775-4d44-a469-c4aec6236d06_basic.webp",
       "PackagePath": "staticwebassets\\images\\cfdeb302-7775-4d44-a469-c4aec6236d06_basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\codesbarres.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\codesbarres.webp",
       "PackagePath": "staticwebassets\\images\\codesbarres.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\digitalisierung.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\digitalisierung.webp",
       "PackagePath": "staticwebassets\\images\\digitalisierung.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\ea888e2b-c392-46a5-9f11-3f5903939689_pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\ea888e2b-c392-46a5-9f11-3f5903939689_pro.webp",
       "PackagePath": "staticwebassets\\images\\ea888e2b-c392-46a5-9f11-3f5903939689_pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp",
       "PackagePath": "staticwebassets\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\entreprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\entreprise.webp",
       "PackagePath": "staticwebassets\\images\\entreprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\f4b1d412-d566-4c19-aa31-3c309a41f5d9_license-pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\f4b1d412-d566-4c19-aa31-3c309a41f5d9_license-pro.webp",
       "PackagePath": "staticwebassets\\images\\f4b1d412-d566-4c19-aa31-3c309a41f5d9_license-pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\hybrid1.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\hybrid1.webp",
       "PackagePath": "staticwebassets\\images\\hybrid1.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\hybrid2.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\hybrid2.webp",
       "PackagePath": "staticwebassets\\images\\hybrid2.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\hybrid3.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\hybrid3.webp",
       "PackagePath": "staticwebassets\\images\\hybrid3.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\innovation.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\innovation.webp",
       "PackagePath": "staticwebassets\\images\\innovation.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\iso9.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\iso9.webp",
       "PackagePath": "staticwebassets\\images\\iso9.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\license-basic.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\license-basic.webp",
       "PackagePath": "staticwebassets\\images\\license-basic.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\license-enterprise.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\license-enterprise.webp",
       "PackagePath": "staticwebassets\\images\\license-enterprise.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\license-pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\license-pro.webp",
       "PackagePath": "staticwebassets\\images\\license-pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pay-per-use-10000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\pay-per-use-10000.webp",
       "PackagePath": "staticwebassets\\images\\pay-per-use-10000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pay-per-use-2000.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\pay-per-use-2000.webp",
       "PackagePath": "staticwebassets\\images\\pay-per-use-2000.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pay-per-use-500.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\pay-per-use-500.webp",
       "PackagePath": "staticwebassets\\images\\pay-per-use-500.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pro.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\pro.webp",
       "PackagePath": "staticwebassets\\images\\pro.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\sfyen.jpg",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\sfyen.jpg",
       "PackagePath": "staticwebassets\\images\\sfyen.jpg"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\software.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\software.webp",
       "PackagePath": "staticwebassets\\images\\software.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\soufiane.ico",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\soufiane.ico",
       "PackagePath": "staticwebassets\\images\\soufiane.ico"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\standart.webp",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\images\\standart.webp",
       "PackagePath": "staticwebassets\\images\\standart.webp"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\telechargement\\BarcodePage.exe",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\telechargement\\BarcodePage.exe",
       "PackagePath": "staticwebassets\\telechargement\\BarcodePage.exe"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\telechargement\\BarcodePage.zip",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\telechargement\\BarcodePage.zip",
       "PackagePath": "staticwebassets\\telechargement\\BarcodePage.zip"
     },
     {
-      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\telechargement\\iso.pdf",
+      "Id": "C:\\Users\\rloer\\Desktop\\Rouland Web Seite\\WebCodesBares\\WebCodesBares\\wwwroot\\telechargement\\iso.pdf",
       "PackagePath": "staticwebassets\\telechargement\\iso.pdf"
     },
     {

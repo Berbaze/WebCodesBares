@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebCodesBares")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1eee012620dc6adbad366a6059f9d1d2620f84b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+489ecb58795c35474c2ba5affb8dc6b0df6c0a65")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebCodesBares")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebCodesBares")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
