@@ -282,6 +282,39 @@
           }
         }
       }
+    },
+    "/api/synology/login": {
+      "get": {
+        "tags": [
+          "Synology"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/synology/share": {
+      "post": {
+        "tags": [
+          "Synology"
+        ],
+        "parameters": [
+          {
+            "name": "path",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

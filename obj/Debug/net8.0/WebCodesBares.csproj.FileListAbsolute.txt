@@ -457,6 +457,7 @@ C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\WebCodesBares.MvcAppl
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\WebCodesBares.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\WebCodesBares.RazorAssemblyInfo.cache
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\WebCodesBares.RazorAssemblyInfo.cs
+C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\WebCodesBares.sourcelink.json
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\sfyen\source\repos\WebCodesBares\obj\Debug\net8.0\staticwebassets\msbuild.WebCodesBares.Microsoft.AspNetCore.StaticWebAssets.props

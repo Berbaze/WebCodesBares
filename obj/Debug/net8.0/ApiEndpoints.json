@@ -178,6 +178,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebCodesBares.Controllers.SynologyController",
+    "Method": "Login",
+    "RelativePath": "api/synology/login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebCodesBares.Controllers.SynologyController",
+    "Method": "CreateShare",
+    "RelativePath": "api/synology/share",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebCodesBares.Controllers.PayPalController",
     "Method": "EstUtilisateurConnecte",
     "RelativePath": "api/utilisateur/estConnecte",

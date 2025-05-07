@@ -293,3 +293,4 @@ C:\Users\sfyen\source\repos\WebCodesBares\bin\Release\net8.0\Microsoft.OpenApi.d
 C:\Users\sfyen\source\repos\WebCodesBares\bin\Release\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\sfyen\source\repos\WebCodesBares\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\sfyen\source\repos\WebCodesBares\bin\Release\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\sfyen\source\repos\WebCodesBares\obj\Release\net8.0\WebCodesBares.sourcelink.json
