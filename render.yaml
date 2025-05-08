@@ -1,7 +1,0 @@
-﻿services:
-  - type: web
-    name: webcodesbares
-    env: docker
-    plan: free
-    repo: https://github.com/Berbaze/WebCodesBares
-    branch: main
