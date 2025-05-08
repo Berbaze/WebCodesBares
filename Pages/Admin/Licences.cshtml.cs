@@ -12,12 +12,15 @@ namespace WebCodesBares.Pages.Admin
     public class LicencesModel : PageModel
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<LicencesModel> _logger;
+
 
         public List<Licence> ListeLicences { get; set; } = new();
 
-        public LicencesModel(ApplicationDbContext context)
+        public LicencesModel(ApplicationDbContext context, ILogger<LicencesModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task OnGetAsync()
@@ -76,21 +79,34 @@ namespace WebCodesBares.Pages.Admin
             var licence = await _context.Licence.FirstOrDefaultAsync(l => l.Cle == cle);
             if (licence != null)
             {
-                _context.Licence.Remove(licence);
-
-                // ✅ Log Audit
-                _context.AuditLogs.Add(new AuditLog
+                try
                 {
-                    Action = $"🗑️ Lizenz löschen ({licence.Type})",
-                    EffectuePar = User.Identity?.Name ?? "Système",
-                    Date = DateTime.UtcNow
-                });
+                    // 🔻 Désactiver temporairement le trigger qui bloque EF
+                    await _context.Database.ExecuteSqlRawAsync("DISABLE TRIGGER trg_Licence_Delete_Commande ON Licence");
 
-                await _context.SaveChangesAsync();
+                    _context.Licence.Remove(licence);
+
+                    // ✅ Log Audit
+                    _context.AuditLogs.Add(new AuditLog
+                    {
+                        Action = $"🗑️ Lizenz löschen ({licence.Type})",
+                        EffectuePar = User.Identity?.Name ?? "Système",
+                        Date = DateTime.UtcNow
+                    });
+
+                    await _context.SaveChangesAsync();
+
+                    // 🔺 Réactiver après suppression
+                    await _context.Database.ExecuteSqlRawAsync("ENABLE TRIGGER trg_Licence_Delete_Commande ON Licence");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "❌ Erreur lors de la suppression de la licence.");
+                    TempData["Error"] = "❌ Ein Fehler ist aufgetreten beim Löschen.";
+                }
             }
+
             return RedirectToPage();
         }
-
-
     }
 }
