@@ -1,0 +1,103 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Konto erstellen";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <!-- FORMULAR LINKS -->
+        <div class="col-md-6">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="shadow p-4 rounded-4 bg-light">
+                <h2 class="text-center mb-4">Neues Konto erstellen</h2>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" placeholder="name@example.com" />
+                    <label asp-for="Input.Email">E-Mail-Adresse</label>
+                    <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" type="password" class="form-control" placeholder="Passwort" />
+                    <label asp-for="Input.Password">Passwort</label>
+                    <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Passwort bestätigen" />
+                    <label asp-for="Input.ConfirmPassword">Passwort bestätigen</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Vorname" class="form-control" placeholder="Vorname" />
+                    <label asp-for="Input.Vorname">Vorname</label>
+                    <span asp-validation-for="Input.Vorname" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Nachname" class="form-control" placeholder="Nachname" />
+                    <label asp-for="Input.Nachname">Nachname</label>
+                    <span asp-validation-for="Input.Nachname" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefonnummer" />
+                    <label asp-for="Input.PhoneNumber">Telefonnummer</label>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger small"></span>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input asp-for="Input.Geburtsdatum" type="date" class="form-control" />
+                    <label asp-for="Input.Geburtsdatum">Geburtsdatum</label>
+                    <span asp-validation-for="Input.Geburtsdatum" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2">Registrieren</button>
+            </form>
+
+            @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+            {
+                <div class="mt-4 text-center">
+                    <p>Oder registrieren Sie sich mit:</p>
+                    <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                            <button type="submit" class="btn btn-outline-dark mx-1" name="provider" value="@provider.Name">
+                                @provider.DisplayName
+                            </button>
+                        }
+                    </form>
+                </div>
+            }
+        </div>
+
+        <!-- INFOTEXT RECHTS -->
+        <div class="col-md-6 d-flex align-items-center mt-4 mt-md-0">
+            <div class="bg-white shadow p-5 rounded-4 ms-md-3 w-100 text-center">
+                <img src="/images/soufiane.ico" alt="Archivcode Logo" class="img-fluid mb-4" style="max-height: 90px;" />
+
+                <h3 class="mb-3 fw-bold text-dark">Willkommen bei Archivcode</h3>
+
+                <p class="text-dark fs-6">
+                    Archivcode ist Ihre zentrale Plattform zur sicheren digitalen Archivierung von <br />
+                    <strong>Dokumenten, Kundendaten und Barcodes.</strong>
+                </p>
+
+                <ul class="list-unstyled mt-4 text-start text-dark ps-3">
+                    <li class="mb-2">✔️ Datenschutzkonforme Speicherung</li>
+                    <li class="mb-2">✔️ Schneller & sicherer Zugriff</li>
+                    <li class="mb-2">✔️ Persönlicher Kundenservice</li>
+                </ul>
+
+                <p class="mt-4 text-secondary small">
+                    Registrieren Sie sich jetzt und starten Sie sofort – einfach, schnell und sicher.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,259 @@
+﻿@page
+@model WebCodesBares.Pages.Produits.PanierModel
+@{
+    ViewData["Title"] = "🛒 Ihr Warenkorb";
+}
+
+<h2 class="mt-4">🛒 Ihr Warenkorb</h2>
+
+@if (Model.ProduitsPanier.Any())
+{
+    <table class="table table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Produktname</th>
+                <th>Preis</th>
+                <th>Menge</th>
+                <th>Gesamt</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produit in Model.ProduitsPanier)
+            {
+                <tr id="row-@produit.Id_Produit">
+                    <td>@produit.Nom</td>
+                    <td>@produit.Prix €</td>
+                    <td>1</td>
+                    <td>@(produit.Prix * 1) €</td>
+                    <td>
+                        <button class="btn btn-danger btn-supprimer" data-produit-id="@produit.Id_Produit">
+                            ❌ Entfernen
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4 class="mt-4">Gesamtsumme: <span id="totalPanier">@Model.TotalPanier</span> €</h4>
+
+    <h3 class="mt-5">💳 Kundendaten</h3>
+
+    <form method="post" asp-page-handler="ValiderAchat" id="formAchat" class="mt-3">
+        <div class="mb-3">
+            <label for="nom" class="form-label">Name:</label>
+            <input type="text" id="nom" name="Nom" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-Mail:</label>
+            <input type="email" id="email" name="Email" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="adresse" class="form-label">Adresse:</label>
+            <input type="text" id="adresse" name="Adresse" class="form-control" required />
+        </div>
+
+        <!-- ✅ Offizieller PayPal-Button -->
+        <div id="paypal-button-container" class="mt-4"></div>
+    </form>
+}
+else
+{
+    <div class="d-flex flex-column align-items-center justify-content-center mt-5">
+        <!-- SVG Illustration Panier Vide -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-cart-x mb-4 text-secondary" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .49.598l-1.5 7A.5.5 0 0 1 13 13H4a.5.5 0 0 1-.49-.402L1.61 2H.5a.5.5 0 0 1-.5-.5ZM3.14 6l1.25 5.998L13 12l1.286-6H3.14Z" />
+            <path d="M5.354 5.646a.5.5 0 1 1 .708.708L5.707 7l.647.646a.5.5 0 0 1-.708.708L5 7.707l-.646.647a.5.5 0 0 1-.708-.708L4.293 7l-.647-.646a.5.5 0 1 1 .708-.708L5 6.293l.354-.647Z" />
+        </svg>
+
+        <h4 class="text-secondary mb-2">🛒 Ihr Warenkorb ist leer</h4>
+        <p class="text-muted">Fügen Sie Produkte hinzu, um Ihre Bestellung abzuschließen.</p>
+
+        <a asp-page="/Produits/Index" class="btn btn-outline-primary mt-3">
+            🔍 Produkte entdecken
+        </a>
+    </div>
+}
+<!-- Toast Container -->
+<div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 1080;"></div>
+
+<!-- Toast Script -->
+<script>
+    function showToast(message, type = "info") {
+        const colorMap = {
+            success: "bg-success",
+            error: "bg-danger",
+            warning: "bg-warning",
+            info: "bg-primary"
+        };
+
+        const toast = document.createElement("div");
+        toast.className = `toast align-items-center text-white ${colorMap[type]} border-0 show`;
+        toast.setAttribute("role", "alert");
+        toast.setAttribute("aria-live", "assertive");
+        toast.setAttribute("aria-atomic", "true");
+        toast.style.minWidth = "250px";
+        toast.innerHTML = `
+            <div class="d-flex">
+                <div class="toast-body">${message}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        `;
+
+        document.getElementById("toastContainer").appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+    }
+</script>
+
+
+<!-- 🔹 Script Suppression Produit -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("🔹 Gestion du panier activée");
+
+        document.querySelectorAll(".btn-supprimer").forEach(button => {
+            button.addEventListener("click", function () {
+                let produitId = this.dataset.produitId;
+                console.log("🛒 Suppression du produit ID:", produitId);
+
+                fetch(`/api/panier/supprimer?produitId=${produitId}`, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("✅ Produit supprimé :", data);
+                        document.getElementById(`row-${produitId}`).remove();
+                        document.getElementById("totalPanier").innerText = data.totalPanier;
+                    })
+                    .catch(error => {
+                        console.error("❌ Erreur lors de la suppression :", error);
+                        alert("Une erreur est survenue lors de la suppression du produit.");
+                    });
+            });
+        });
+    });
+</script>
+
+<!-- ✅ Chargement du SDK PayPal -->
+<script src="https://www.paypal.com/sdk/js?client-id=AX9wNMocMlYKuvPLMKX3bnYDJAW25ygM2In4NP1Gs9Ktq7BGH_Pg0O6Ys2_Eh-lqPpa_XS60I3FDOdbT&currency=EUR"></script>
+<script>
+async function estUtilisateurConnecte() {
+    try {
+        const response = await fetch('/api/utilisateur/estConnecte');
+        if (!response.ok) throw new Error("Erreur lors de la vérification de connexion !");
+        const data = await response.json();
+
+        if (!data.estConnecte) {
+            showToast("⚠️ Veuillez vous connecter avant de payer.", "warning");
+            window.location.href = `${window.location.origin}/Identity/Account/Login`;
+            return false;
+        }
+        return true;
+    } catch (error) {
+        console.error("❌ Erreur connexion utilisateur :", error);
+        return false;
+    }
+}
+
+    async function getPanierDetails() {
+        try {
+            const response = await fetch('/api/panier/details');
+            if (!response.ok) throw new Error("Erreur récupération panier !");
+            return await response.json();
+        } catch (error) {
+            console.error("❌ Erreur récupération panier :", error);
+            alert("Impossible de récupérer le panier.");
+            return null;
+        }
+    }
+  paypal.Buttons({
+    createOrder: async () => {
+        try {
+            const estConnecte = await estUtilisateurConnecte();
+            if (!estConnecte) {
+                return Promise.reject(new Error("UTILISATEUR_NON_CONNECTE"));
+            }
+
+            const panier = await getPanierDetails();
+            if (!panier || panier.produits.length === 0) {
+                return Promise.reject(new Error("PANIER_VIDE"));
+            }
+
+            const response = await fetch('/api/paypal/create-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    montant: panier.totalPanier,
+                    produits: panier.produits.map(p => ({
+                        Id_Produit: p.id_Produit,
+                        Quantite: 1
+                    }))
+                })
+            });
+
+            if (!response.ok) {
+                const msg = await response.text();
+                return Promise.reject(new Error("API_PAYPAL_ERROR: " + msg));
+            }
+
+            const data = await response.json();
+            if (!data.orderId) return Promise.reject(new Error("NO_ORDER_ID"));
+
+            return data.orderId;
+        } catch (err) {
+            return Promise.reject(err);
+        }
+    },
+
+    onApprove: async (data) => {
+        const response = await fetch(`/api/paypal/capture-order/${data.orderID}`, {
+            method: 'POST'
+        });
+
+        if (!response.ok) {
+            showToast('❌ Erreur lors de la validation du paiement.', 'error');
+            return;
+        }
+
+        const result = await response.json();
+        showToast('✅ Paiement réussi !', 'success');
+        await fetch('/api/panier/vider', { method: 'POST' });
+        window.location.href = `/Comande/Confirmation?PayPalId=${data.orderID}`;
+    },
+
+    onError: (err) => {
+        console.warn("🚨 Erreur PayPal captée :", err);
+        const msg = (err?.message || "").toUpperCase();
+
+        if (msg.includes("PANIER_VIDE")) {
+            showToast("⚠️ Ihr Warenkorb ist leer.", "warning");
+            return;
+        }
+
+        if (msg.includes("UTILISATEUR_NON_CONNECTE")) {
+            showToast("⚠️ Connectez-vous avant de procéder au paiement.", "warning");
+            return;
+        }
+
+        if (msg.includes("NO_ORDER_ID")) {
+            showToast("❌ Aucune commande PayPal n’a été créée.", "error");
+            return;
+        }
+
+        if (msg.includes("API_PAYPAL_ERROR")) {
+            showToast("❌ Problème interne avec le serveur PayPal !", "error");
+            return;
+        }
+
+       
+    }
+
+}).render('#paypal-button-container');
+
+
+
+
+
+</script>
+

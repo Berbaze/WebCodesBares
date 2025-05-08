@@ -1,0 +1,197 @@
+﻿@using WebCodesBares.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ArchivCode Leistung</title>
+    <link rel="icon" type="image/x-icon" href="/images/soufiane.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/soufiane.ico" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebCodesBares.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <style>
+        .custom-login-btn, .admin-badge {
+            background-color: #fff;
+            color: #000 !important;
+            border: 1px solid #fff;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+            .custom-login-btn:hover, .admin-badge:hover {
+                background-color: #e9ecef;
+                color: #000 !important;
+                border-color: #fff;
+            }
+
+        .navbar .nav-link {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            color: #000 !important;
+            padding: 6px 12px;
+            margin-right: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .navbar .nav-link:hover {
+                background-color: #f8f9fa;
+                color: #000 !important;
+                border-color: #bbb;
+            }
+    </style>
+</head>
+
+<body class="dark-mode">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" asp-page="/Index">
+                <img src="/images/soufiane.ico" alt="Logo" style="height: 50px; width: 50px;" class="d-inline-block align-text-top">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <!-- ✅ BOUTON HOME AJOUTÉ ICI -->
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Index">
+                            <i class="bi bi-house-door-fill me-1"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" asp-page="/Produits/Index">Produkt</a></li>
+                    <li class="nav-item"><a class="nav-link position-relative" asp-page="/Produits/Panier">🛒 Warenkorb <span class="badge bg-danger" id="panierCount">0</span></a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/UberUns">Über Uns</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Zertifizierungen">Zertifizierungen</a></li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var user = await UserManager.GetUserAsync(User);
+                        if (user != null && await UserManager.IsInRoleAsync(user, "Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle admin-badge" href="#" id="adminMenu" data-bs-toggle="dropdown">🛡️ Admin Panel</a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Dashboard">📊 Dashboard</a></li>
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/StatsModel">📈 Statistiken</a></li>
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Bestellungen">📦 Bestellungen</a></li>
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Licences">🔐 Lizenzen</a></li>
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/GererAdmins">🧑‍💼 Admins verwalten</a></li>
+                                    <li><a class="dropdown-item fw-semibold" asp-page="/Produits/Create">🆕 Neu Produkt</a></li>
+
+                                </ul>
+                            </li>
+                        }
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-bs-toggle="dropdown">
+                                👤 @(User.Identity?.Name ?? "Benutzer")
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item text-primary" asp-page="/KundenBarCodes/MeineDaten">
+                                        <i class="bi bi-gear"></i> Meine Daten
+                                    </a>
+                                </li>
+                                <li>
+                                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item">
+                                        <button type="submit" class="btn btn-link text-danger">🚪 Abmelden</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link custom-login-btn" asp-area="Identity" asp-page="/Account/Login">🔑 Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted mt-4">
+        <div class="container text-center">
+            &copy; 2025 - WebCodesBares - <a asp-page="/Privacy">Datenschutzrichtlinie</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @{
+        var cookieConsent = Context.Request.Cookies["CookieConsent"];
+    }
+
+    @if (cookieConsent == null)
+    {
+        <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 12px; text-align: center; z-index: 9999;">
+            <p>
+                Diese Website verwendet Cookies, um Ihnen die bestmögliche Nutzererfahrung zu bieten.
+                Einige Cookies sind für den Betrieb der Seite notwendig, während andere uns helfen,
+                unsere Dienste zu verbessern und relevante Inhalte anzuzeigen.
+                Sie können selbst entscheiden, ob Sie nicht-essenzielle Cookies zulassen möchten.
+                Weitere Informationen finden Sie in unserer
+                <a href="/datenschutz" style="color: #4CAF50; text-decoration: underline;">Datenschutzerklärung</a>.
+            </p>
+            <button onclick="acceptCookies()" style="margin-left: 12px; background-color: #4CAF50; color: white; padding: 8px 16px;">Akzeptieren</button>
+            <button onclick="declineCookies()" style="margin-left: 10px; background-color: #ccc; color: black; padding: 8px 16px;">Ablehnen</button>
+        </div>
+    }
+
+    <script>
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+        }
+
+        function acceptCookies() {
+            setCookie('CookieConsent', 'true', 365);
+            document.getElementById('cookie-banner').remove();
+            location.reload();
+        }
+
+        function declineCookies() {
+            setCookie('CookieConsent', 'false', 365);
+            document.getElementById('cookie-banner').remove();
+        }
+
+        if (getCookie('CookieConsent') === 'true') {
+            const script = document.createElement('script');
+            script.src = "//code.tidio.co/oubxjkt6jcbv1vik2xq5ch7w4exad8ju.js";
+            script.async = true;
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>

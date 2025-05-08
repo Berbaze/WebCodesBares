@@ -1,0 +1,219 @@
+﻿@page
+@model WebCodesBares.Pages.Produits.IndexModel
+@using WebCodesBares.Data
+
+@{
+    ViewData["Title"] = "Produkte";
+}
+
+<!-- Titre principal -->
+<div class="container text-center mt-5">
+    <h1 class="display-4 fw-bold">🛍️ Unsere Lizenzmodelle</h1>
+    <p class="lead text-secondary">Wählen Sie das passende Modell für Ihr Unternehmen</p>
+</div>
+
+<!-- Affichage des modèles de licence -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📜 Basic Modell</h2>
+    @{
+        RenderProduits(Model.BasicListe);
+    }
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">💰 Pro Modell</h2>
+    @{
+        RenderProduits(Model.ProListe);
+    }
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🔄 Enterprise Modell</h2>
+    @{
+        RenderProduits(Model.EnterpriseListe);
+    }
+</div>
+
+<!-- Footer principal -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-1">© 2025 <strong>WebCodesBares</strong> | Alle Rechte vorbehalten</p>
+    <div class="d-flex justify-content-center gap-3 small">
+        <a href="/Privacy" class="text-light text-decoration-none">Datenschutz</a>
+        <span>|</span>
+        <a href="/Kontakt" class="text-light text-decoration-none">Kontakt</a>
+    </div>
+</footer>
+
+<!-- FOOTER PANIER STICKY MODERNE -->
+<footer id="resumePanier" class="bg-white shadow-lg border-top pt-4 pb-3 position-fixed bottom-0 start-0 end-0">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+
+        <!-- Colonne: Produits -->
+        <div>
+            <h5 class="fw-semibold text-primary mb-1">
+                <i class="bi bi-bag-check-fill me-1"></i> Aktuelle Auswahl
+            </h5>
+            <div id="panierProduits" class="small text-muted">Lade Produkte...</div>
+        </div>
+
+        <!-- Colonne: Total + Bouton -->
+        <div class="footer-divider">
+            <p class="mb-1 fw-bold">
+                <i class="bi bi-cash-coin me-1"></i> Gesamt:
+                <span id="panierTotal" class="text-success fs-5">-- €</span>
+            </p>
+            <button class="btn btn-danger rounded-pill w-100 w-md-auto mt-2" onclick="location.href='/Produits/Panier'">
+                <i class="bi bi-receipt-cutoff me-1"></i> Tarif ändern
+            </button>
+        </div>
+
+        <!-- Colonne: Lien vers Panier -->
+        <div class="footer-divider">
+            <a href="/Produits/Panier" class="text-decoration-none fw-semibold">
+                <i class="bi bi-cart3 me-1"></i> Zum Warenkorb
+                <span id="panierCount">0</span>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- Fonction d'affichage des produits -->
+@functions {
+    void RenderProduits(List<Produit> produkte)
+    {
+        if (produkte == null || produkte.Count == 0)
+        {
+            <div class="alert alert-warning text-center">
+                ❌ Keine Produkte verfügbar.
+            </div>
+            ;
+        }
+        else
+        {
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var produkt in produkte)
+                {
+                    <div class="col">
+                        <div class="card h-100 border-0 rounded-4 shadow product-card p-3">
+                            <img src="@produkt.ImageUrl" class="card-img-top rounded-4 mb-3" alt="@produkt.Nom" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column justify-content-between text-center">
+                                <h5 class="card-title fw-semibold text-dark mb-2">
+                                    <i class="bi bi-award me-1"></i>@produkt.Nom
+                                </h5>
+                                <p class="text-muted small mb-3">@produkt.Description</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-success bg-opacity-75 fs-6 px-3 py-2 rounded-pill">
+                                        💶 @produkt.Prix €
+                                    </span>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary rounded-pill btn-ajouter-panier" data-produit-id="@produkt.Id_Produit">
+                                    <i class="bi bi-cart-plus me-1"></i> In den Warenkorb
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        }
+    }
+}
+
+<!-- SCRIPT JS Panier -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        updatePanierCount();
+        chargerResumePanier();
+
+        const panierFooter = document.getElementById("resumePanier");
+        if (panierFooter) panierFooter.classList.add("loaded");
+
+        document.querySelectorAll(".btn-ajouter-panier").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                let produitId = this.dataset.produitId;
+                if (!produitId) return;
+
+                fetch(`/api/panier/ajouter?produitId=${produitId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error("❌ Serverfehler!");
+                    return response.json();
+                })
+                .then(data => {
+                    document.querySelectorAll('#panierCount').forEach(el => {
+                        el.innerText = data.count || 0;
+                        el.classList.add("updated");
+                        setTimeout(() => el.classList.remove("updated"), 300);
+                    });
+                    showSuccessMessage("✅ Produkt wurde erfolgreich zum Warenkorb hinzugefügt!");
+                    chargerResumePanier();
+                })
+                .catch(error => {
+                    console.error("❌ AJAX-Fehler:", error);
+                    alert("⚠️ Ein Fehler ist aufgetreten.");
+                });
+            });
+        });
+
+        function updatePanierCount() {
+            fetch('/api/panier/count')
+                .then(response => {
+                    if (!response.ok) throw new Error("❌ Serverfehler!");
+                    return response.json();
+                })
+                .then(data => {
+                    document.querySelectorAll('#panierCount').forEach(el => {
+                        el.innerText = data.count || 0;
+                        el.classList.add("updated");
+                        setTimeout(() => el.classList.remove("updated"), 300);
+                    });
+                })
+                .catch(error => console.error("⚠️ Fehler beim Abrufen des Warenkorbs:", error));
+        }
+
+        function chargerResumePanier() {
+            fetch('/api/panier/details')
+                .then(response => {
+                    if (!response.ok) throw new Error("Fehler beim Abrufen des Warenkorbs");
+                    return response.json();
+                })
+                .then(data => {
+                    const container = document.getElementById("panierProduits");
+                    const totalEl = document.getElementById("panierTotal");
+                    if (data.produits.length === 0) {
+                        container.innerHTML = "<p class='text-muted'>🛒 Der Warenkorb ist leer.</p>";
+                        totalEl.innerText = "0,00 €";
+                        return;
+                    }
+
+                    container.innerHTML = data.produits.map(p =>
+                        `<p><strong>1 x ${p.nom}</strong> <span class="float-end">${p.prix.toFixed(2)} €</span></p>`
+                    ).join("");
+
+                    totalEl.innerText = data.totalPanier.toFixed(2) + " €";
+                })
+                .catch(error => {
+                    console.error("❌ Fehler beim Laden des Warenkorbs:", error);
+                    document.getElementById("panierProduits").innerHTML =
+                        "<p class='text-danger'>Fehler beim Laden des Warenkorbs.</p>";
+                });
+        }
+
+        function showSuccessMessage(message) {
+            let alertBox = document.createElement("div");
+            alertBox.className = "alert alert-success position-fixed top-0 end-0 m-3";
+            alertBox.style.zIndex = "1050";
+            alertBox.innerText = message;
+            document.body.appendChild(alertBox);
+            setTimeout(() => {
+                alertBox.remove();
+            }, 2000);
+        }
+    });
+</script>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

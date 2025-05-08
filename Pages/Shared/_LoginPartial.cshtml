@@ -1,0 +1,16 @@
+﻿@using WebCodesBares.Data
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@if (SignInManager.IsSignedIn(User))
+{
+    <text>Hallo, @UserManager.GetUserName(User)</text>
+    <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+        <button type="submit">Abmelden</button>
+    </form>
+}
+else
+{
+    <a href="@Url.Page("/Account/Login")">Anmelden</a>
+}
