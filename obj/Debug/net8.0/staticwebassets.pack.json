@@ -193,6 +193,10 @@
       "PackagePath": "staticwebassets\\images\\berbaze.png"
     },
     {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\bsLicence.png",
+      "PackagePath": "staticwebassets\\images\\bsLicence.png"
+    },
+    {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp",
       "PackagePath": "staticwebassets\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp"
     },
@@ -219,6 +223,10 @@
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp",
       "PackagePath": "staticwebassets\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\entlicence.png",
+      "PackagePath": "staticwebassets\\images\\entlicence.png"
     },
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\entreprise.webp",
@@ -271,6 +279,10 @@
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pay-per-use-500.webp",
       "PackagePath": "staticwebassets\\images\\pay-per-use-500.webp"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\prlicence.png",
+      "PackagePath": "staticwebassets\\images\\prlicence.png"
     },
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pro.webp",

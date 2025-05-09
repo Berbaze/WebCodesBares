@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2qUQJedjf5L96Smq0FWAmh7+KdIuX1DmaHA/1BGoZb4=",
+  "Hash": "hoqeqhp7GaUjr1pJKgLkaL3un1e5zSJ4SMmi/4zN2SM=",
   "Source": "WebCodesBares",
   "BasePath": "_content/WebCodesBares",
   "Mode": "Default",
@@ -2088,6 +2088,25 @@
       "OriginalItemSpec": "wwwroot\\images\\berbaze.png"
     },
     {
+      "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\bsLicence.png",
+      "SourceId": "WebCodesBares",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\",
+      "BasePath": "_content/WebCodesBares",
+      "RelativePath": "images/bsLicence.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bsLicence.png"
+    },
+    {
       "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\cd4032c1-6702-4e62-82af-7278f6aa7ede_hybrid2.webp",
       "SourceId": "WebCodesBares",
       "SourceType": "Discovered",
@@ -2219,6 +2238,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ef6f4ba7-2a59-466e-8335-29eb2825af4b_barcode3.webp"
+    },
+    {
+      "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\entlicence.png",
+      "SourceId": "WebCodesBares",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\",
+      "BasePath": "_content/WebCodesBares",
+      "RelativePath": "images/entlicence.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\entlicence.png"
     },
     {
       "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\entreprise.webp",
@@ -2466,6 +2504,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pay-per-use-500.webp"
+    },
+    {
+      "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\prlicence.png",
+      "SourceId": "WebCodesBares",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\",
+      "BasePath": "_content/WebCodesBares",
+      "RelativePath": "images/prlicence.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\prlicence.png"
     },
     {
       "Identity": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\pro.webp",
