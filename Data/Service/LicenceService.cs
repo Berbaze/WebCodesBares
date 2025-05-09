@@ -100,10 +100,10 @@ namespace WebCodesBares.Data.Service
 
             await _dbContext.SaveChangesAsync();
 
-            var adminRole = await _roleManager.FindByNameAsync("Admin");
+            var adminRole = await _roleManager.FindByNameAsync("SuperUser");
             if (adminRole == null)
             {
-                adminRole = new IdentityRole("Admin");
+                adminRole = new IdentityRole("SuperUser");
                 await _roleManager.CreateAsync(adminRole);
             }
 
@@ -111,9 +111,9 @@ namespace WebCodesBares.Data.Service
             if (existingUser == null)
                 throw new Exception("Utilisateur introuvable.");
 
-            if (!await _userManager.IsInRoleAsync(existingUser, "Admin"))
+            if (!await _userManager.IsInRoleAsync(existingUser, "SuperUser"))
             {
-                await _userManager.AddToRoleAsync(existingUser, "Admin");
+                await _userManager.AddToRoleAsync(existingUser, "SuperUser");
                 _logger.LogInformation("👑 L'utilisateur {UserName} ({UserId}) a été ajouté au rôle Admin.", user.UserName, user.Id);
             }
 
