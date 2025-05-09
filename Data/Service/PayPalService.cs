@@ -213,11 +213,23 @@ namespace WebCodesBares.Services
                     foreach (var licence in licences)
                     {
                         await _emailSender.SendEmailAsync(
-                            user.Email,
-                            "Votre Lizenzaktivierung",
-                            $"Ihr Lizenzschlüssel: {licence.Cle}<br><a href='{lienTelechargement}'>Software herunterladen</a>");
+       user.Email,
+       "Ihre WebCodesBares Lizenz",
+       $@"<p>Hallo <strong>{user.UserName}</strong>,</p>
 
-                        _logger.LogInformation("📧 Email envoyé avec lien fixe pour licence : {Cle}", licence.Cle);
+<p>vielen Dank für Ihren Einkauf bei <strong>WebCodesBares</strong>!</p>
+
+<p>🔐 <strong>Ihr persönlicher Lizenzschlüssel:</strong><br>
+<code style='font-size: 1.2rem; color: green;'>{licence.Cle}</code></p>
+
+<p>📥 <strong>Software herunterladen:</strong><br>
+<a href='{lienTelechargement}' style='color: #0d6efd;'>Jetzt herunterladen</a></p>
+
+<p>Bei Fragen kontaktieren Sie uns gerne jederzeit.</p>
+
+<p>Mit freundlichen Grüßen<br>
+Ihr WebCodesBares Team</p>"
+   );
                     }
                 }
 

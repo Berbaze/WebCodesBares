@@ -85,7 +85,7 @@
                         if (user != null && await UserManager.IsInRoleAsync(user, "Admin"))
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle admin-badge" href="#" id="adminMenu" data-bs-toggle="dropdown">🛡️ Admin Panel</a>
+                                <a class="nav-link" href="#" id="adminMenu" data-bs-toggle="dropdown">🛡️ Admin Panel</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Dashboard">📊 Dashboard</a></li>
                                     <li><a class="dropdown-item fw-semibold" asp-page="/Admin/StatsModel">📈 Statistiken</a></li>
@@ -107,15 +107,21 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item text-primary" asp-page="/KundenBarCodes/MeineDaten">
-                                        <i class="bi bi-gear"></i> Meine Daten
-                                    </a>
-                                </li>
-                                <li>
-                                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item">
-                                        <button type="submit" class="btn btn-link text-danger">🚪 Abmelden</button>
+                                    <form method="get" asp-page="/KundenBarCodes/MeineDaten" class="dropdown-item m-0 p-0">
+                                        <button type="submit" class="btn btn-dark w-100 text-start">
+                                            <i class="bi bi-gear me-2"></i> Meine Daten
+                                        </button>
                                     </form>
                                 </li>
+
+                                <li>
+                                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item m-0 p-0">
+                                        <button type="submit" class="btn btn-dark w-100 text-start text-danger">
+                                            🚪 Abmelden
+                                        </button>
+                                    </form>
+                                </li>
+
                             </ul>
                         </li>
                     }
