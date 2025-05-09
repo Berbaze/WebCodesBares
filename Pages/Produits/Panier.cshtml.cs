@@ -126,32 +126,6 @@ namespace WebCodesBares.Pages.Produits
 
                 await _context.CommandeProduit.AddRangeAsync(commandeProduits);
                 await _context.SaveChangesAsync();
-
-                foreach (var produit in produits)
-                {
-                    string cleLicence = LicenceService.GenererCle();
-
-                    if (!string.IsNullOrEmpty(user.Email))
-                    {
-                        string lienGoogleDrive = "https://drive.google.com/uc?export=download&id=14qan5tY8jIz0ORx72Y-biR7MsNTBeDL2";
-
-                        await _emailSender.SendEmailAsync(
-                            user.Email,
-                            "Votre Licence WebCodesBares",
-                            $@"Bonjour {user.UserName},
-
-Merci pour votre achat !
-
-🔑 Licence : {cleLicence}
-
-📥 Télécharger l'application : {lienGoogleDrive}
-
-Cordialement,  
-L'équipe WebCodesBares"
-                        );
-                    }
-                }
-
                 await transaction.CommitAsync();
 
                 HttpContext.Session.SetObjectAsJson("Panier", new List<int>());

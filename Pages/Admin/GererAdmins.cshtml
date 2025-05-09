@@ -11,55 +11,55 @@
             <th>Benutzername</th>
             <th>E-Mail</th>
             <th>Statut</th>
-            <th>Aktionen</th>
+            <th>Aktion</th>
+            <th>Löschen</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var utilisateur in Model.UtilisateursAvecRole)
         {
-                <tr>
-                    <td>@utilisateur.User.UserName</td>
-                    <td>@utilisateur.User.Email</td>
-                    <td>
+            <tr>
+                <td>@utilisateur.User.UserName</td>
+                <td>@utilisateur.User.Email</td>
+                <td>
                     @if (utilisateur.EstAdmin)
                     {
-                                <span class="badge bg-success fw-semibold">🟢 Admin</span>
+                        <span class="badge bg-success fw-semibold">🟢 Admin</span>
                     }
                     else
                     {
-                                <span class="badge bg-secondary fw-semibold">⚪ Benutzer</span>
+                        <span class="badge bg-secondary fw-semibold">⚪ Benutzer</span>
                     }
-                    </td>
-                    <td>
-                        <div class="d-flex justify-content-center gap-2 flex-wrap">
-                        @if (utilisateur.EstAdmin)
-                        {
-                                    <form method="post" asp-page-handler="Retrograder" class="d-inline">
-                                        <input type="hidden" name="userId" value="@utilisateur.User.Id" />
-                                        <button class="btn btn-sm btn-outline-warning fw-semibold">
-                                            <i class="bi bi-arrow-down-circle"></i> Herabstufen
-                                        </button>
-                                    </form>
-                        }
-                        else
-                        {
-                                    <form method="post" asp-page-handler="Promouvoir" class="d-inline">
-                                        <input type="hidden" name="userId" value="@utilisateur.User.Id" />
-                                        <button class="btn btn-sm btn-outline-primary fw-semibold">
-                                            <i class="bi bi-arrow-up-circle"></i> Befördern
-                                        </button>
-                                    </form>
-                        }
-
-                            <form method="post" asp-page-handler="Supprimer" class="d-inline" onsubmit="return confirm('⚠️ Benutzer dauerhaft löschen?');">
-                                <input type="hidden" name="userId" value="@utilisateur.User.Id" />
-                                <button class="btn btn-sm btn-outline-danger fw-semibold">
-                                    <i class="bi bi-trash"></i> Löschen
-                                </button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+                </td>
+                <td>
+                    @if (utilisateur.EstAdmin)
+                    {
+                        <form method="post" asp-page-handler="Retrograder" class="d-inline">
+                            <input type="hidden" name="userId" value="@utilisateur.User.Id" />
+                            <button class="btn btn-sm btn-outline-warning fw-semibold">
+                                <i class="bi bi-arrow-down-circle"></i> Herabstufen
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form method="post" asp-page-handler="Promouvoir" class="d-inline">
+                            <input type="hidden" name="userId" value="@utilisateur.User.Id" />
+                            <button class="btn btn-sm btn-outline-primary fw-semibold">
+                                <i class="bi bi-arrow-up-circle"></i> Befördern
+                            </button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    <form method="post" asp-page-handler="Supprimer" class="d-inline" onsubmit="return confirm('⚠️ Benutzer dauerhaft löschen?');">
+                        <input type="hidden" name="userId" value="@utilisateur.User.Id" />
+                        <button class="btn btn-sm btn-outline-danger fw-semibold">
+                            <i class="bi bi-person-x-fill me-1"></i> Löschen
+                        </button>
+                    </form>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

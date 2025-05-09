@@ -28,21 +28,28 @@ namespace WebCodesBares.Services
         private readonly ILoggerFactory _loggerFactory;
         private readonly LicenceService _licenceService;
 
+        private readonly SynologyAuthService _synologyAuth;
+        private readonly SynologyShareService _synologyShare;
+
         public PayPalService(
             ILogger<PayPalService> logger,
             ApplicationDbContext dbContext,
             UserManager<ApplicationUser> userManager,
             IConfiguration configuration,
-            IEmailSender emailSender,  // Injection Interface
+            IEmailSender emailSender,
             ILoggerFactory loggerFactory,
-            LicenceService licenceService)
+            LicenceService licenceService,
+            SynologyAuthService synologyAuth,
+            SynologyShareService synologyShare)
         {
             _logger = logger;
             _dbContext = dbContext;
             _userManager = userManager;
-            _emailSender = emailSender; // Affectation interface
+            _emailSender = emailSender;
             _loggerFactory = loggerFactory;
             _licenceService = licenceService;
+            _synologyAuth = synologyAuth;
+            _synologyShare = synologyShare;
 
             var clientId = configuration["PayPal:ClientId"];
             var clientSecret = configuration["PayPal:ClientSecret"];
@@ -123,21 +130,22 @@ namespace WebCodesBares.Services
 
             if (produits == null || !produits.Any())
             {
-                _logger.LogWarning("🚫 Capture annulée : la liste des produits est vide pour Order ID {OrderId}", orderId);
+                _logger.LogWarning("🚫 Liste de produits vide.");
                 return null;
             }
 
             string paymentStatus = await GetPaymentStatusAsync(orderId);
+            _logger.LogInformation("🔁 Statut du paiement reçu : {Status}", paymentStatus);
+
             if (paymentStatus != "APPROVED")
             {
-                _logger.LogWarning("⚠️ Paiement non approuvé pour Order ID {OrderId}, statut actuel : {Status}", orderId, paymentStatus);
+                _logger.LogWarning("⚠️ Paiement non approuvé pour : {OrderId}", orderId);
                 return null;
             }
 
-            bool isCaptured = await CapturePaymentAsync(orderId);
-            if (!isCaptured)
+            if (!await CapturePaymentAsync(orderId))
             {
-                _logger.LogWarning("⚠️ Échec de la capture du paiement pour Order ID {OrderId}", orderId);
+                _logger.LogWarning("⚠️ Capture paiement échouée : {OrderId}", orderId);
                 return null;
             }
 
@@ -150,7 +158,7 @@ namespace WebCodesBares.Services
 
                 if (commande == null)
                 {
-                    _logger.LogError("🚨 Commande introuvable pour OrderId PayPal : {OrderId}", orderId);
+                    _logger.LogError("❌ Commande introuvable pour OrderId : {OrderId}", orderId);
                     return null;
                 }
 
@@ -159,6 +167,7 @@ namespace WebCodesBares.Services
                     commande.EstPaye = true;
                     _dbContext.Commande.Update(commande);
                     await _dbContext.SaveChangesAsync();
+                    _logger.LogInformation("💾 Statut commande mis à jour.");
                 }
 
                 var existingProductIds = commande.CommandeProduits.Select(cp => cp.Id_Produit).ToHashSet();
@@ -174,56 +183,58 @@ namespace WebCodesBares.Services
                 {
                     await _dbContext.CommandeProduit.AddRangeAsync(newCommandeProduits);
                     await _dbContext.SaveChangesAsync();
+                    _logger.LogInformation("➕ Produits ajoutés à la commande.");
                 }
 
-                // Utilisation de _licenceService
                 var licences = new List<Licence>();
 
                 foreach (var produit in produits)
                 {
                     var produitDb = await _dbContext.Produit.FindAsync(produit.Id_Produit);
-
                     if (produitDb == null)
                     {
-                        _logger.LogError("❌ Produit introuvable dans la base pour l'ID: {Id}", produit.Id_Produit);
+                        _logger.LogError("❌ Produit introuvable : {Id}", produit.Id_Produit);
                         continue;
                     }
 
-                    _logger.LogInformation("🔍 Création licence pour : {NomProduit} ({Type})", produitDb.Nom, produitDb.Type);
-
                     var licence = await _licenceService.CreerLicenceAsync(commande, produitDb, user);
-
                     if (licence != null)
+                    {
                         licences.Add(licence);
+                        _logger.LogInformation("✅ Licence créée : {Cle} pour produit {Nom}", licence.Cle, produitDb.Nom);
+                    }
                 }
 
+                // 📦 Lien de téléchargement fixe
+                const string lienTelechargement = "https://mikroplus.dscloud.me:1998/sharing/sNjShnRnx";
 
-
-                // Envoi des emails
                 if (licences.Any() && !string.IsNullOrEmpty(user.Email))
                 {
-                    string lienGoogleDrive = "https://drive.google.com/file/d/14qan5tY8jIz0ORx72Y-biR7MsNTBeDL2/view?usp=drive_link";
-
                     foreach (var licence in licences)
                     {
                         await _emailSender.SendEmailAsync(
                             user.Email,
                             "Votre Lizenzaktivierung",
-                            $"Ihr Lizenzschlüssel: {licence.Cle}<br><a href='{lienGoogleDrive}'>Software herunterladen</a>");
+                            $"Ihr Lizenzschlüssel: {licence.Cle}<br><a href='{lienTelechargement}'>Software herunterladen</a>");
+
+                        _logger.LogInformation("📧 Email envoyé avec lien fixe pour licence : {Cle}", licence.Cle);
                     }
                 }
 
                 await transaction.CommitAsync();
+                _logger.LogInformation("✅ Capture finalisée avec succès.");
 
                 return new Order { Id = orderId, Status = "COMPLETED", Links = new List<LinkDescription>() };
             }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                _logger.LogError(ex, "🚨 Erreur lors de la capture de la commande PayPal pour OrderId : {OrderId}", orderId);
+                _logger.LogError(ex, "🚨 Exception durant la capture de commande : {OrderId}", orderId);
                 return null;
             }
         }
+
+
 
 
 

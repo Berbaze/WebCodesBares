@@ -13,12 +13,14 @@ namespace WebCodesBares.Pages.Admin
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<GererAdminsModel> _logger;
 
-        public GererAdminsModel(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context)
+        public GererAdminsModel(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ApplicationDbContext context, ILogger<GererAdminsModel> logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _context = context;
+            _logger = logger;
         }
 
         public class UserWithRole
@@ -102,12 +104,13 @@ namespace WebCodesBares.Pages.Admin
 
         public async Task<IActionResult> OnPostSupprimerAsync(string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user != null)
+            try
             {
-                var result = await _userManager.DeleteAsync(user);
-                if (result.Succeeded)
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                if (user != null)
                 {
+                    _context.Users.Remove(user);
+
                     _context.AuditLogs.Add(new AuditLog
                     {
                         Action = $"[LÖSCHUNG] Benutzer gelöscht: {user.Email}",
@@ -117,9 +120,21 @@ namespace WebCodesBares.Pages.Admin
 
                     await _context.SaveChangesAsync();
                 }
-            }
 
-            return RedirectToPage();
+                return RedirectToPage();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"❌ Fehler beim Löschen des Benutzers mit ID {userId}");
+                ModelState.AddModelError(string.Empty, "Fehler beim Löschen des Benutzers.");
+                return Page();
+            }
         }
+
+
+
+
+
+
     }
 }

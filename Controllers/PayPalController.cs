@@ -122,22 +122,15 @@ namespace WebCodesBares.Controllers
             {
                 _logger.LogInformation("🔄 Vérification et capture du paiement pour Order ID PayPal : {OrderId}", orderId);
 
+                // 🧑‍💻 Récupération utilisateur connecté
                 var client = await _userManager.GetUserAsync(User);
                 if (client == null)
                 {
-                    _logger.LogWarning("⚠️ Utilisateur non trouvé ou non connecté !");
-                    return Unauthorized(new { message = "Utilisateur non connecté ou introuvable." });
+                    _logger.LogWarning("⚠️ Utilisateur non trouvé !");
+                    return Unauthorized(new { message = "Utilisateur non connecté." });
                 }
 
-                // ✅ Étape 1 : Vérifier le statut du paiement avant capture
-                string paymentStatus = await _paypalService.GetPaymentStatusAsync(orderId);
-                if (paymentStatus != "APPROVED")
-                {
-                    _logger.LogWarning("⚠️ Paiement non approuvé pour Order ID {OrderId}, statut actuel : {Status}", orderId, paymentStatus);
-                    return BadRequest(new { message = "Le paiement n'est pas approuvé." });
-                }
-
-                // ✅ Étape 2 : Récupérer la commande locale avec ses produits associés
+                // 🛒 Produits de la commande
                 var commande = await _dbContext.Commande
                     .Include(c => c.CommandeProduits)
                         .ThenInclude(cp => cp.Produit)
@@ -145,39 +138,32 @@ namespace WebCodesBares.Controllers
 
                 if (commande == null || commande.CommandeProduits == null || !commande.CommandeProduits.Any())
                 {
-                    _logger.LogWarning("⚠️ Aucun produit trouvé pour cette commande !");
-                    return BadRequest(new { message = "Aucun produit trouvé pour cette commande." });
+                    _logger.LogWarning("⚠️ Aucun produit trouvé pour la commande PayPal : {OrderId}", orderId);
+                    return BadRequest(new { message = "Aucun produit associé à cette commande." });
                 }
 
                 var produits = commande.CommandeProduits.Select(cp => cp.Produit).ToList();
 
-                // ✅ Étape 3 : Capturer le paiement
-                bool isCaptured = await _paypalService.CapturePaymentAsync(orderId);
-                if (!isCaptured)
+                // ✅ Appel de la vraie méthode qui gère tout (paiement, licence, synology, email)
+                var order = await _paypalService.CaptureOrder(orderId, client, produits);
+                if (order == null)
                 {
-                    _logger.LogWarning("⚠️ Échec de la capture du paiement pour Order ID : {OrderId}", orderId);
-                    return BadRequest(new { message = "Échec de la capture du paiement." });
+                    return BadRequest(new { message = "Capture échouée." });
                 }
-
-                // ✅ Étape 4 : Finaliser la commande et enregistrer en base
-                commande.EstPaye = true;
-                _dbContext.Commande.Update(commande);
-                await _dbContext.SaveChangesAsync();
-
-                _logger.LogInformation("✅ Paiement capturé avec succès pour Order ID {OrderId}", orderId);
 
                 return Ok(new
                 {
-                    message = "Paiement capturé avec succès !",
+                    message = "✅ Paiement capturé + traitement licence effectué.",
                     commandeId = commande.Id_Commande
                 });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "❌ Erreur lors de la capture de la commande PayPal.");
-                return StatusCode(500, new { message = "Erreur interne du serveur." });
+                _logger.LogError(ex, "❌ Erreur lors de la capture complète.");
+                return StatusCode(500, new { message = "Erreur interne serveur." });
             }
         }
+
 
 
         [HttpGet("success")]
