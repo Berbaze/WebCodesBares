@@ -129,15 +129,7 @@ namespace WebCodesBares.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     // Envoi de l'email
-                    await _emailSender.SendEmailAsync(
-              Input.Email,
-              "Bestätigen Sie Ihr Konto",
-              $"Hallo {user.Vorname},<br><br>" +
-              $"Vielen Dank für Ihre Registrierung auf unserer Website.<br><br>" +
-              $"Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den folgenden Link klicken:<br><br>" +
-              $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Konto bestätigen</a><br><br>" +
-              $"Mit freundlichen Grüßen,<br>" +
-              $"Ihr Team von WebCodesBares");
+                
 
                     // Si confirmation obligatoire → On redirige vers page "confirmation envoyée"
                     return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
