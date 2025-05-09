@@ -53,9 +53,14 @@ public class RegisterConfirmationModel : PageModel
         // 🛑 FORCER l'envoi de l'email peu importe l'environnement
         DisplayConfirmAccountLink = false;
 
-        await _emailSender.SendEmailAsync(email, "Bestätigung Ihres Micro_Plus-Kontos",
-    $"<p>Vielen Dank für Ihre Registrierung!</p>" +
-    $"<p>Bitte bestätigen Sie Ihr Konto, indem Sie auf diesen Link klicken: <a href='{EmailConfirmationUrl}'>Konto bestätigen</a></p>");
+        await _emailSender.SendEmailAsync(email,
+            "Bestätigen Sie Ihr Konto",
+            $"Hallo {user.Vorname},\n\n" +
+              $"Vielen Dank für Ihre Registrierung auf unserer Website.\n\n" +
+              $"Bitte bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den folgenden Link klicken:" +
+              $"{EmailConfirmationUrl}Konto bestätigen\n\n" +
+              $"Mit freundlichen Grüßen,\n\n" +
+              $"Ihr Team von WebCodesBares");
 
         return Page();
     }
