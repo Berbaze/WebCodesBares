@@ -81,12 +81,11 @@ namespace WebCodesBares.Pages.Admin
             {
                 try
                 {
-                    // 🔻 Désactiver temporairement le trigger qui bloque EF
-                    await _context.Database.ExecuteSqlRawAsync("DISABLE TRIGGER trg_Licence_Delete_Commande ON Licence");
+                    // 🔻 Désactiver temporairement le trigger pour éviter le blocage EF
+                    await _context.Database.ExecuteSqlRawAsync("DISABLE TRIGGER trg_DeleteCascade_Licence ON Licence");
 
                     _context.Licence.Remove(licence);
 
-                    // ✅ Log Audit
                     _context.AuditLogs.Add(new AuditLog
                     {
                         Action = $"🗑️ Lizenz löschen ({licence.Type})",
@@ -96,8 +95,8 @@ namespace WebCodesBares.Pages.Admin
 
                     await _context.SaveChangesAsync();
 
-                    // 🔺 Réactiver après suppression
-                    await _context.Database.ExecuteSqlRawAsync("ENABLE TRIGGER trg_Licence_Delete_Commande ON Licence");
+                    // 🔺 Réactiver le trigger
+                    await _context.Database.ExecuteSqlRawAsync("ENABLE TRIGGER trg_DeleteCascade_Licence ON Licence");
                 }
                 catch (Exception ex)
                 {
@@ -108,5 +107,6 @@ namespace WebCodesBares.Pages.Admin
 
             return RedirectToPage();
         }
+
     }
 }
