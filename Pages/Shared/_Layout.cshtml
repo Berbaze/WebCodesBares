@@ -79,7 +79,28 @@
                     <li class="nav-item"><a class="nav-link" asp-page="/UberUns">Über Uns</a></li>
                     <li class="nav-item"><a class="nav-link" asp-page="/Zertifizierungen">Zertifizierungen</a></li>
 
-                    @if (User.Identity.IsAuthenticated)
+               
+
+                    @{
+                        var user = User.Identity.IsAuthenticated ? await UserManager.GetUserAsync(User) : null;
+                    }
+
+                    @if (user != null && await UserManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="adminMenu" data-bs-toggle="dropdown">🛡️ Admin Panel</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Dashboard">📊 Dashboard</a></li>
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Statistiken">📈 Statistiken</a></li>
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Bestellungen">📦 Bestellungen</a></li>
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Lizenzen">🔐 Lizenzen</a></li>
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Mitarbeiterverwaltung">🧑‍💼 Admins verwalten</a></li>
+                                <li><a class="dropdown-item fw-semibold" asp-page="/Produits/Create">🆕 Neu Produkt</a></li>
+                            </ul>
+                        </li>
+                    }
+
+                    @if (user != null)
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-bs-toggle="dropdown">
@@ -109,6 +130,8 @@
                             <a class="nav-link custom-login-btn" asp-area="Identity" asp-page="/Account/Login">🔑 Login</a>
                         </li>
                     }
+
+
 
                 </ul>
             </div>

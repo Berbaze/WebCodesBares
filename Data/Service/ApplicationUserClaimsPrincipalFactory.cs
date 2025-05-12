@@ -15,9 +15,19 @@ namespace WebCodesBares.Data.Service
         protected override async Task<ClaimsIdentity> GenerateClaimsAsync(ApplicationUser user)
         {
             var identity = await base.GenerateClaimsAsync(user);
-            Console.WriteLine("✅ FullName-Claim wird hinzugefügt");
+
+            // ✅ FullName wie gehabt
             identity.AddClaim(new Claim("FullName", $"{user.Vorname} {user.Nachname}"));
+
+            // ✅ Rollen manuell hinzufügen
+            var roles = await UserManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                identity.AddClaim(new Claim(ClaimTypes.Role, role));
+            }
+
             return identity;
         }
+
     }
 }
