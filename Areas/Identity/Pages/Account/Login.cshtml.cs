@@ -112,32 +112,34 @@ namespace WebCodesBares.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
+                // Benutzer anhand E-Mail finden (E-Mail ist gleichzeitig Username)
                 var user = await _userManager.FindByEmailAsync(Input.Email);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Ungültige Anmeldeinformationen.");
                     return Page();
                 }
 
-                // ✅ Prüfe Passwort manuell
+                // Passwort prüfen
                 var isPasswordCorrect = await _userManager.CheckPasswordAsync(user, Input.Password);
                 if (!isPasswordCorrect)
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Falsches Passwort.");
                     return Page();
                 }
 
-                // ✅ Login + Claims aktivieren (inkl. FullName via ClaimsPrincipalFactory)
-                await _signInManager.SignInAsync(user, isPersistent: Input.RememberMe);
+                // Login durchführen (nutzt ClaimsPrincipalFactory → FullName funktioniert!)
+                await _signInManager.SignInAsync(user, Input.RememberMe);
 
-                _logger.LogInformation($"User logged in: {user.Vorname} {user.Nachname}");
+                _logger.LogInformation($"✅ Benutzer eingeloggt: {user.Email}");
 
                 return LocalRedirect(returnUrl);
             }
 
-            // ❌ Fehlerhafte Eingabe, zeige Formular erneut
+            // Etwas ist schiefgelaufen → Login erneut anzeigen
             return Page();
         }
+
 
     }
 }

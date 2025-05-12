@@ -77,8 +77,16 @@
       "PackagePath": "staticwebassets\\images\\58fdde64-d741-4e24-a008-1f10a8e6a2d9_pay-per-use-2000.webp"
     },
     {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\5a6a6ca1-7352-4301-9552-8393355505b3_bsLicence.png",
+      "PackagePath": "staticwebassets\\images\\5a6a6ca1-7352-4301-9552-8393355505b3_bsLicence.png"
+    },
+    {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\6897a5af-2f29-4e84-b095-791e25268ccf_hybrid1.webp",
       "PackagePath": "staticwebassets\\images\\6897a5af-2f29-4e84-b095-791e25268ccf_hybrid1.webp"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\6dc31470-7ccf-4e04-ac8f-30e4082e7e98_bsLicence.png",
+      "PackagePath": "staticwebassets\\images\\6dc31470-7ccf-4e04-ac8f-30e4082e7e98_bsLicence.png"
     },
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\7d2b6d9a-d612-45ea-9d62-08d8b90e8ea4_entreprise.webp",
@@ -123,6 +131,10 @@
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a243d092-0e71-432e-bfa1-5d5d706f851c_entreprise.webp",
       "PackagePath": "staticwebassets\\images\\a243d092-0e71-432e-bfa1-5d5d706f851c_entreprise.webp"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a3bbcde3-0628-44ad-a90c-9677699f9f19_prlicence.png",
+      "PackagePath": "staticwebassets\\images\\a3bbcde3-0628-44ad-a90c-9677699f9f19_prlicence.png"
     },
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\a9ca78d8-d58e-4d1f-a078-ef98f4bc8c1f_pay-per-use-500.webp",
@@ -211,6 +223,14 @@
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\codesbarres.webp",
       "PackagePath": "staticwebassets\\images\\codesbarres.webp"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\d05e6b09-996f-4f25-84f7-9122c56f9b13_entlicence.png",
+      "PackagePath": "staticwebassets\\images\\d05e6b09-996f-4f25-84f7-9122c56f9b13_entlicence.png"
+    },
+    {
+      "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\de38b47e-3b6a-4d0b-952b-eab85a48fe8d_bsLicence.png",
+      "PackagePath": "staticwebassets\\images\\de38b47e-3b6a-4d0b-952b-eab85a48fe8d_bsLicence.png"
     },
     {
       "Id": "C:\\Users\\sfyen\\source\\repos\\WebCodesBares\\wwwroot\\images\\digitalisierung.webp",
