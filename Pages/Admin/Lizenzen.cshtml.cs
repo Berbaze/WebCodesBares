@@ -100,7 +100,7 @@ namespace WebCodesBares.Pages.Admin
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "❌ Erreur lors de la suppression de la licence.");
+                    _logger.LogError(ex, "❌ Ein Fehler ist aufgetreten beim Löschen.");
                     TempData["Error"] = "❌ Ein Fehler ist aufgetreten beim Löschen.";
                 }
             }
