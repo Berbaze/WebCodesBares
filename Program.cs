@@ -18,6 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddHttpClient<SynologyAuthService>();
 builder.Services.AddHttpClient<SynologyShareService>();
+
+
 // 🔐 Identity + Rôles
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
@@ -31,7 +33,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, ApplicationUserClaimsPrincipalFactory>();
 // 🔐 Autorisation Admin
 builder.Services.AddAuthorization(options =>
 {

@@ -81,29 +81,9 @@
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        var user = await UserManager.GetUserAsync(User);
-                        if (user != null && await UserManager.IsInRoleAsync(user, "Admin"))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" id="adminMenu" data-bs-toggle="dropdown">🛡️ Admin Panel</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Dashboard">📊 Dashboard</a></li>
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Statistiken">📈 Statistiken</a></li>
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Bestellungen">📦 Bestellungen</a></li>
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Lizenzen">🔐 Lizenzen</a></li>
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Admin/Mitarbeiterverwaltung">🧑‍💼 Admins verwalten</a></li>
-                                    <li><a class="dropdown-item fw-semibold" asp-page="/Produits/Create">🆕 Neu Produkt</a></li>
-
-                                </ul>
-                            </li>
-                        }
-                    }
-
-                    @if (User.Identity.IsAuthenticated)
-                    {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-bs-toggle="dropdown">
-                                👤 @(User.Identity?.Name ?? "Benutzer")
+                                👤 @(User.FindFirst("FullName")?.Value ?? User.Identity?.Name ?? "Benutzer")
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
@@ -113,7 +93,6 @@
                                         </button>
                                     </form>
                                 </li>
-
                                 <li>
                                     <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="dropdown-item m-0 p-0">
                                         <button type="submit" class="btn btn-dark w-100 text-start text-danger">
@@ -121,7 +100,6 @@
                                         </button>
                                     </form>
                                 </li>
-
                             </ul>
                         </li>
                     }
@@ -131,6 +109,7 @@
                             <a class="nav-link custom-login-btn" asp-area="Identity" asp-page="/Account/Login">🔑 Login</a>
                         </li>
                     }
+
                 </ul>
             </div>
         </div>

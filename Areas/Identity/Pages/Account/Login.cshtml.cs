@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -112,8 +112,6 @@ namespace WebCodesBares.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var user = await _userManager.FindByEmailAsync(Input.Email);
                 if (user == null)
                 {
@@ -121,31 +119,25 @@ namespace WebCodesBares.Areas.Identity.Pages.Account
                     return Page();
                 }
 
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
+                // ✅ Prüfe Passwort manuell
+                var isPasswordCorrect = await _userManager.CheckPasswordAsync(user, Input.Password);
+                if (!isPasswordCorrect)
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
                 }
+
+                // ✅ Login + Claims aktivieren (inkl. FullName via ClaimsPrincipalFactory)
+                await _signInManager.SignInAsync(user, isPersistent: Input.RememberMe);
+
+                _logger.LogInformation($"User logged in: {user.Vorname} {user.Nachname}");
+
+                return LocalRedirect(returnUrl);
             }
 
-            // If we got this far, something failed, redisplay form
+            // ❌ Fehlerhafte Eingabe, zeige Formular erneut
             return Page();
         }
+
     }
 }
