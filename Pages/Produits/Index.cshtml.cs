@@ -53,7 +53,7 @@ namespace WebCodesBares.Pages.Produits
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Erreur lors du chargement des produits : {ex.Message}");
+                _logger.LogError($"Fehler beim Laden der Produkte : {ex.Message}");
             }
         }
 
@@ -62,12 +62,12 @@ namespace WebCodesBares.Pages.Produits
             var produit = await _context.Produit.FindAsync(produitId);
             if (produit == null)
             {
-                _logger.LogWarning($"Produit avec ID {produitId} introuvable.");
+                _logger.LogWarning($"Produkt mit ID {produitId} nicht gefunden.");
                 return NotFound();
             }
 
             _panierService.AjouterProduit(produitId);
-            _logger.LogInformation($"Produit ID {produitId} ajouté au panier.");
+            _logger.LogInformation($"Produkt mit ID {produitId} wurde dem Warenkorb hinzugefügt.");
             return RedirectToPage();
         }
     }

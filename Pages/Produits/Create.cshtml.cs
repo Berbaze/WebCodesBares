@@ -39,11 +39,11 @@ namespace WebCodesBares.Pages.Produits
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _logger.LogInformation("🚀 OnPostAsync() a été appelée !");
+            _logger.LogInformation("🚀 OnPostAsync() wurde aufgerufen!");
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("❌ ModelState est invalide !");
+                _logger.LogWarning("❌ ModelState ist ungültig!");
                 return Page();
             }
 
@@ -53,7 +53,7 @@ namespace WebCodesBares.Pages.Produits
             // Gestion de l'upload d'image
             if (ImageFile != null)
             {
-                _logger.LogInformation("📸 Une image a été sélectionnée.");
+                _logger.LogInformation("📸 Ein Bild wurde ausgewählt.");
                 var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
                 Directory.CreateDirectory(uploadsFolder);
                 var uniqueFileName = Guid.NewGuid().ToString() + "_" + ImageFile.FileName;
@@ -70,9 +70,9 @@ namespace WebCodesBares.Pages.Produits
             _context.Produit.Add(Produit);
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation($"✅ Produit '{Produit.Nom}' ajouté avec succès ! (ID: {Produit.Id_Produit})");
+            _logger.LogInformation($"✅ Produkt '{Produit.Nom}' erfolgreich hinzugefügt ! (ID: {Produit.Id_Produit})");
 
-            TempData["SuccessMessage"] = $"Le produit '{Produit.Nom}' a été ajouté avec succès !";
+            TempData["SuccessMessage"] = $"Das Produkt '{Produit.Nom}' wurde erfolgreich hinzugefügt!";
 
             return RedirectToPage("./Index");
         }

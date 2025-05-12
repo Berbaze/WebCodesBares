@@ -30,7 +30,7 @@ namespace WebCodesBares.Pages.EinLogen
         {
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
             {
-                ModelState.AddModelError(string.Empty, "Email et mot de passe sont requis.");
+                ModelState.AddModelError(string.Empty, "E-Mail und Passwort sind erforderlich.");
                 return Page();
             }
 
@@ -38,7 +38,7 @@ namespace WebCodesBares.Pages.EinLogen
             var user = await _userManager.FindByEmailAsync(Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "Email ou mot de passe incorrect.");
+                ModelState.AddModelError(string.Empty, "E-Mail oder Passwort ist falsch.");
                 return Page();
             }
 
@@ -47,7 +47,7 @@ namespace WebCodesBares.Pages.EinLogen
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty, "Email ou mot de passe incorrect.");
+                ModelState.AddModelError(string.Empty, "E-Mail oder Passwort ist falsch.");
                 return Page();
             }
 
