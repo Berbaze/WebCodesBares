@@ -214,10 +214,10 @@ namespace WebCodesBares.Services
                     {
                         await _emailSender.SendEmailAsync(
        user.Email,
-       "Ihre WebCodesBares Lizenz",
-       $@"<p>Hallo <strong>{user.UserName}</strong>,</p>
+       "Ihre ArchivCode Lizenz",
+       $@"<p>Hallo <strong>{user.Vorname}</strong>,</p>
 
-<p>vielen Dank für Ihren Einkauf bei <strong>WebCodesBares</strong>!</p>
+<p>vielen Dank für Ihren Einkauf bei <strong>ArchivCode</strong>!</p>
 
 <p>🔐 <strong>Ihr persönlicher Lizenzschlüssel:</strong><br>
 <code style='font-size: 1.2rem; color: green;'>{licence.Cle}</code></p>
@@ -228,7 +228,7 @@ namespace WebCodesBares.Services
 <p>Bei Fragen kontaktieren Sie uns gerne jederzeit.</p>
 
 <p>Mit freundlichen Grüßen<br>
-Ihr WebCodesBares Team</p>"
+Ihr ArchivCode Team</p>"
    );
                     }
                 }
