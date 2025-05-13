@@ -63,43 +63,9 @@ public class ConfirmationModel : PageModel
 
         _logger.LogInformation("👤 Benutzer gefunden : {UserName} ({Email})", user.UserName, user.Email);
 
-        var emailBody = new StringBuilder();
-        emailBody.AppendLine($"Hallo {user.UserName},");
-        emailBody.AppendLine("Vielen Dank für Ihren Kauf! Hier ist Ihre Lizenz:");
+      
 
-        foreach (var commandeProduit in Commande.CommandeProduits)
-        {
-            _logger.LogInformation("🛠 Lizenz wird erstellt für Produkt : {ProduitNom}", commandeProduit.Produit.Nom);
-
-            try
-            {
-                var licence = await _licenceService.CreerLicenceAsync(Commande, commandeProduit.Produit, user);
-
-                if (licence != null)
-                {
-                    _logger.LogInformation("✅ Lizenz gespeichert: {Cle}", licence.Cle);
-                    emailBody.AppendLine($"\n🔑 Lizenz für {commandeProduit.Produit.Nom} : {licence.Cle}");
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "❌ Lizenzerstellung fehlgeschlagen für Produkt {ProduitNom}", commandeProduit.Produit.Nom);
-            }
-        }
-
-        emailBody.AppendLine("\nMit freundlichen Grüßen, \nIhr ArchivCode-Team");
-
-        string subject = "🎉 Ihre ArchivCode-Lizenz ist bereit!";
-
-        try
-        {
-            await _emailSender.SendEmailAsync(user.Email, subject, emailBody.ToString());
-            _logger.LogInformation("📩 Bestätigungs-E-Mail gesendet an {Email}", user.Email);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "❌ Fehler beim Senden der E-Mail an {Email}", user.Email);
-        }
+    
 
         return Page();
     }
