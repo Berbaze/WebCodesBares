@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebCodesBares.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialIdentityMigration : Migration
+    public partial class FixCascadePathsOnMitarbeiter : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,8 +30,9 @@ namespace WebCodesBares.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Vorname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nachname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Geburtsdatum = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -53,6 +54,21 @@ namespace WebCodesBares.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AuditLogs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Action = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EffectuePar = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AuditLogs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "barcodes",
                 columns: table => new
                 {
@@ -67,23 +83,6 @@ namespace WebCodesBares.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_barcodes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Mitarbeiter",
-                columns: table => new
-                {
-                    Id_Mitarbeiter = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateInscription = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mitarbeiter", x => x.Id_Mitarbeiter);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,7 +231,106 @@ namespace WebCodesBares.Migrations
                         column: x => x.ClientId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CommandeProduit",
+                columns: table => new
+                {
+                    Id_Commande = table.Column<int>(type: "int", nullable: false),
+                    Id_Produit = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CommandeProduit", x => new { x.Id_Commande, x.Id_Produit });
+                    table.ForeignKey(
+                        name: "FK_CommandeProduit_Commande_Id_Commande",
+                        column: x => x.Id_Commande,
+                        principalTable: "Commande",
+                        principalColumn: "Id_Commande",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CommandeProduit_Produit_Id_Produit",
+                        column: x => x.Id_Produit,
+                        principalTable: "Produit",
+                        principalColumn: "Id_Produit",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Licence",
+                columns: table => new
+                {
+                    Id_Licence = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Cle = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    NombreUtilisateurs = table.Column<int>(type: "int", nullable: false),
+                    NombreBarcodes = table.Column<int>(type: "int", nullable: false),
+                    Prix = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    PrixMaintenance = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    DateEmission = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateExpiration = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Active = table.Column<bool>(type: "bit", nullable: false),
+                    Id_Commande = table.Column<int>(type: "int", nullable: false),
+                    BarcodesRestants = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EstSuspendue = table.Column<bool>(type: "bit", nullable: false),
+                    DatePause = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Licence", x => x.Id_Licence);
+                    table.ForeignKey(
+                        name: "FK_Licence_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Licence_Commande_Id_Commande",
+                        column: x => x.Id_Commande,
+                        principalTable: "Commande",
+                        principalColumn: "Id_Commande",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mitarbeiter",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AdminId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LicenceId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mitarbeiter", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Mitarbeiter_AspNetUsers_AdminId",
+                        column: x => x.AdminId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Mitarbeiter_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Mitarbeiter_Licence_LicenceId",
+                        column: x => x.LicenceId,
+                        principalTable: "Licence",
+                        principalColumn: "Id_Licence",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,55 +379,7 @@ namespace WebCodesBares.Migrations
                         name: "FK_Kunden_Mitarbeiter_Id_Mitarbeiter",
                         column: x => x.Id_Mitarbeiter,
                         principalTable: "Mitarbeiter",
-                        principalColumn: "Id_Mitarbeiter");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CommandeProduit",
-                columns: table => new
-                {
-                    Id_Commande = table.Column<int>(type: "int", nullable: false),
-                    Id_Produit = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CommandeProduit", x => new { x.Id_Commande, x.Id_Produit });
-                    table.ForeignKey(
-                        name: "FK_CommandeProduit_Commande_Id_Commande",
-                        column: x => x.Id_Commande,
-                        principalTable: "Commande",
-                        principalColumn: "Id_Commande",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CommandeProduit_Produit_Id_Produit",
-                        column: x => x.Id_Produit,
-                        principalTable: "Produit",
-                        principalColumn: "Id_Produit",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Licence",
-                columns: table => new
-                {
-                    Id_Licence = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Cle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Id_Commande = table.Column<int>(type: "int", nullable: false),
-                    CommandeId_Commande = table.Column<int>(type: "int", nullable: false),
-                    DateExpiration = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Licence", x => x.Id_Licence);
-                    table.ForeignKey(
-                        name: "FK_Licence_Commande_CommandeId_Commande",
-                        column: x => x.CommandeId_Commande,
-                        principalTable: "Commande",
-                        principalColumn: "Id_Commande",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -387,9 +437,29 @@ namespace WebCodesBares.Migrations
                 column: "Id_Mitarbeiter");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Licence_CommandeId_Commande",
+                name: "IX_Licence_Id_Commande",
                 table: "Licence",
-                column: "CommandeId_Commande");
+                column: "Id_Commande");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Licence_UserId",
+                table: "Licence",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mitarbeiter_AdminId",
+                table: "Mitarbeiter",
+                column: "AdminId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mitarbeiter_LicenceId",
+                table: "Mitarbeiter",
+                column: "LicenceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Mitarbeiter_UserId",
+                table: "Mitarbeiter",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -411,6 +481,9 @@ namespace WebCodesBares.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "AuditLogs");
+
+            migrationBuilder.DropTable(
                 name: "barcodes");
 
             migrationBuilder.DropTable(
@@ -420,9 +493,6 @@ namespace WebCodesBares.Migrations
                 name: "Kunden");
 
             migrationBuilder.DropTable(
-                name: "Licence");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -430,6 +500,9 @@ namespace WebCodesBares.Migrations
 
             migrationBuilder.DropTable(
                 name: "Mitarbeiter");
+
+            migrationBuilder.DropTable(
+                name: "Licence");
 
             migrationBuilder.DropTable(
                 name: "Commande");

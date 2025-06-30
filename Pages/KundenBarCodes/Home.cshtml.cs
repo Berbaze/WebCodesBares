@@ -19,15 +19,15 @@ namespace WebCodesBares.Pages.KundenBarCodes
         public async Task OnGetAsync()
         {
             NeuesteProdukte = await _context.Produit
-                .OrderByDescending(p => p.Id_Produit) // Tri par ID décroissant pour les nouveaux produits
-                .Take(5) // Récupère les 5 derniers produits
-                .Select(p => new Produit // Gérer les valeurs NULL ici
+                .OrderByDescending(p => p.Id_Produit)
+                .Take(5) 
+                .Select(p => new Produit 
                 {
                     Id_Produit = p.Id_Produit,
-                    Nom = p.Nom ?? "Unbekannt",  // Remplace NULL par "Unbekannt"
+                    Nom = p.Nom ?? "Unbekannt",  
                     Description = p.Description ?? "Keine Beschreibung",
-                    Prix= p.Prix, // Si NULL, remplace par 0
-                    ImageUrl = p.ImageUrl ?? "/images/default.webp" // Image par défaut si NULL
+                    Prix= p.Prix, 
+                    ImageUrl = p.ImageUrl ?? "/images/default.webp" 
                 })
                 .ToListAsync();
         }

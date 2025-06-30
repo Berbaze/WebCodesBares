@@ -12,15 +12,15 @@ using WebCodesBares.Data;
 namespace WebCodesBares.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250227081349_InitialIdentityMigration")]
-    partial class InitialIdentityMigration
+    [Migration("20250630140221_FixCascadePathsOnMitarbeiter")]
+    partial class FixCascadePathsOnMitarbeiter
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -162,48 +162,13 @@ namespace WebCodesBares.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebCodesBares.Data.Barcodes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("BarcodeImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BarcodeLagerOrt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BarcodeText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id_Mitarbeiter")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KundenId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("barcodes");
-                });
-
-            modelBuilder.Entity("WebCodesBares.Data.Clients", b =>
+            modelBuilder.Entity("WebCodesBares.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<string>("Adresse")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -216,14 +181,16 @@ namespace WebCodesBares.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime?>("Geburtsdatum")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Nom")
-                        .IsRequired()
+                    b.Property<string>("Nachname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -253,6 +220,9 @@ namespace WebCodesBares.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("Vorname")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -264,6 +234,61 @@ namespace WebCodesBares.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("WebCodesBares.Data.AuditLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EffectuePar")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AuditLogs");
+                });
+
+            modelBuilder.Entity("WebCodesBares.Data.Barcodes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BarcodeImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BarcodeLagerOrt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BarcodeText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id_Mitarbeiter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("KundenId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("barcodes");
                 });
 
             modelBuilder.Entity("WebCodesBares.Data.Commande", b =>
@@ -312,34 +337,6 @@ namespace WebCodesBares.Migrations
                     b.HasIndex("Id_Produit");
 
                     b.ToTable("CommandeProduit");
-                });
-
-            modelBuilder.Entity("WebCodesBares.Data.Licence", b =>
-                {
-                    b.Property<int>("Id_Licence")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_Licence"));
-
-                    b.Property<string>("Cle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CommandeId_Commande")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateExpiration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id_Commande")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id_Licence");
-
-                    b.HasIndex("CommandeId_Commande");
-
-                    b.ToTable("Licence");
                 });
 
             modelBuilder.Entity("WebCodesBares.Data.Models.Kunden", b =>
@@ -453,34 +450,104 @@ namespace WebCodesBares.Migrations
                     b.ToTable("Kunden");
                 });
 
-            modelBuilder.Entity("WebCodesBares.Data.Models.Mitarbeiter", b =>
+            modelBuilder.Entity("WebCodesBares.Data.Models.Licence", b =>
                 {
-                    b.Property<int>("Id_Mitarbeiter")
+                    b.Property<int>("Id_Licence")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_Mitarbeiter"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_Licence"));
 
-                    b.Property<string>("Adresse")
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("BarcodesRestants")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("DateInscription")
+                    b.Property<DateTime>("DateEmission")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateExpiration")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DatePause")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<bool>("EstSuspendue")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Id_Commande")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NombreBarcodes")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NombreUtilisateurs")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Prix")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<decimal>("PrixMaintenance")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Telephone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("Id_Licence");
 
-                    b.HasKey("Id_Mitarbeiter");
+                    b.HasIndex("Id_Commande");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Licence");
+                });
+
+            modelBuilder.Entity("WebCodesBares.Data.Models.Mitarbeiter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdminId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("LicenceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("LicenceId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Mitarbeiter");
                 });
@@ -540,7 +607,7 @@ namespace WebCodesBares.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WebCodesBares.Data.Clients", null)
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -549,7 +616,7 @@ namespace WebCodesBares.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WebCodesBares.Data.Clients", null)
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -564,7 +631,7 @@ namespace WebCodesBares.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebCodesBares.Data.Clients", null)
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -573,7 +640,7 @@ namespace WebCodesBares.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WebCodesBares.Data.Clients", null)
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -582,10 +649,10 @@ namespace WebCodesBares.Migrations
 
             modelBuilder.Entity("WebCodesBares.Data.Commande", b =>
                 {
-                    b.HasOne("WebCodesBares.Data.Clients", "Client")
-                        .WithMany("Commandes")
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", "Client")
+                        .WithMany()
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Client");
                 });
@@ -595,13 +662,13 @@ namespace WebCodesBares.Migrations
                     b.HasOne("WebCodesBares.Data.Commande", "Commande")
                         .WithMany("CommandeProduits")
                         .HasForeignKey("Id_Commande")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("WebCodesBares.Data.Produit", "Produit")
                         .WithMany("CommandeProduits")
                         .HasForeignKey("Id_Produit")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Commande");
@@ -609,39 +676,64 @@ namespace WebCodesBares.Migrations
                     b.Navigation("Produit");
                 });
 
-            modelBuilder.Entity("WebCodesBares.Data.Licence", b =>
-                {
-                    b.HasOne("WebCodesBares.Data.Commande", "Commande")
-                        .WithMany()
-                        .HasForeignKey("CommandeId_Commande")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Commande");
-                });
-
             modelBuilder.Entity("WebCodesBares.Data.Models.Kunden", b =>
                 {
                     b.HasOne("WebCodesBares.Data.Models.Mitarbeiter", "Mitarbeiter")
-                        .WithMany("KundenListe")
+                        .WithMany()
                         .HasForeignKey("Id_Mitarbeiter");
 
                     b.Navigation("Mitarbeiter");
                 });
 
-            modelBuilder.Entity("WebCodesBares.Data.Clients", b =>
+            modelBuilder.Entity("WebCodesBares.Data.Models.Licence", b =>
                 {
-                    b.Navigation("Commandes");
+                    b.HasOne("WebCodesBares.Data.Commande", "Commande")
+                        .WithMany()
+                        .HasForeignKey("Id_Commande")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Commande");
+
+                    b.Navigation("Utilisateur");
+                });
+
+            modelBuilder.Entity("WebCodesBares.Data.Models.Mitarbeiter", b =>
+                {
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WebCodesBares.Data.Models.Licence", "Licence")
+                        .WithMany()
+                        .HasForeignKey("LicenceId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("WebCodesBares.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Admin");
+
+                    b.Navigation("Licence");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WebCodesBares.Data.Commande", b =>
                 {
                     b.Navigation("CommandeProduits");
-                });
-
-            modelBuilder.Entity("WebCodesBares.Data.Models.Mitarbeiter", b =>
-                {
-                    b.Navigation("KundenListe");
                 });
 
             modelBuilder.Entity("WebCodesBares.Data.Produit", b =>
